@@ -2,6 +2,8 @@
     
     text-align: center;
     background-color:#CBE86B;
+    box-shadow: 0px -5px 10px #ABC84B inset;
+    position: fixed;
 }
 
 
@@ -18,6 +20,7 @@
     padding-right:0px;
     margin-left:10px;
     overflow:auto;
+    position: fixed;
 }
 
 .reason {
@@ -35,15 +38,17 @@
 .nav > li > a {
     color: black;
     background-color: #D2C9C1;
-    border-top:1px solid #CBE86B;
-    border-bottom:1px solid #ABC84B;
+    border-top: 1px solid #ABC84B;
+    border-bottom: 1px solid #ABC84B;
+    box-shadow: -3px -3px 5px #B2A9A1 inset;
 }
 
 .nav > li > a:hover {
     color: black;
     background-color: #ABC84B;
-    border-top:1px solid #ABC84B;
-    border-bottom:1px solid #ABC84B;
+    border-top: 1px solid #ABC84B;
+    border-bottom: 1px solid #ABC84B;
+    box-shadow: -3px -3px 5px #8BA82B inset;
 }
 
 .profile-picture {
@@ -73,4 +78,8 @@ a.sign-out:hover {
 
 .following-ul {
     text-align:left;
+}
+
+.content {
+    height:1000px;
 }
