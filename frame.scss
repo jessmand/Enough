@@ -1,0 +1,114 @@
+//directions for compilation: 
+//copy and paste into http://sassmeister.com/
+//copy and paste result into css file
+
+$maincolor: #59A80F;
+$sidebarcolor: #C0C0A0;
+
+.top-banner {
+    
+    text-align: center;
+    background-color:$maincolor;
+    box-shadow: 0px -5px 10px darken($maincolor,20%) inset;
+    position: fixed;
+    color: white;
+    text-shadow:
+    -1px -1px 0 darken($maincolor,40%),
+    1px -1px 0 darken($maincolor,40%),
+    -1px 1px 0 darken($maincolor,40%),
+    1px 1px 0 darken($maincolor,40%);
+}
+
+
+
+.title {
+    font-size:60px;
+    
+}
+
+.sidebar {
+    background-color:$sidebarcolor;
+    margin-top:10px;
+    padding-left: 0px;
+    padding-right:0px;
+    margin-left:10px;
+    overflow:auto;
+    text-align:center;
+    width:250px;
+    float:left;
+    position:fixed;
+}
+
+.reason {
+    font-size:30px;
+    line-height:85.7px;
+}
+
+
+.nav > li {
+    margin-top:5px;
+    margin-bottom:5px;
+    
+}
+
+.nav > li > a {
+    color: white;
+    font-weight: bold;
+    text-shadow:
+    -1px -1px 0 darken($maincolor,40%),
+    1px -1px 0 darken($maincolor,40%),
+    -1px 1px 0 darken($maincolor,40%),
+    1px 1px 0 darken($maincolor,40%);
+    background-color: $maincolor;
+    border-top: 1px solid darken($maincolor,20%);
+    border-bottom: 1px solid darken($maincolor,20%);
+    box-shadow: -3px -3px 5px darken($maincolor,20%) inset;
+}
+
+.nav > li > a:hover {
+    color: white;
+    background-color: lighten($maincolor,10%);
+}
+
+.profile-picture {
+    width:100%;
+}
+
+.profile-name {
+    text-align:left;
+}
+
+.profile-picture-bar {
+    margin-left:10px;
+    margin-right:10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a.sign-out {
+    color: #6B880B;
+}
+
+a.sign-out:hover {
+    color: #4B6800;
+}
+
+.following-list {
+    margin-top:10px;
+    padding-top:2px;
+}
+
+.following-ul {
+    text-align:left;
+}
+
+.content {
+    height:1000px;
+    float:left;
+    margin-top: 10px;
+}
+
+body {
+    background-image: url("greyzz.png");
+    background-repeat:repeat;
+}

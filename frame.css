@@ -1,107 +1,93 @@
 .top-banner {
-    
-    text-align: center;
-    background-color:#95AA61;
-    box-shadow: 0px -5px 10px #657A31 inset;
-    position: fixed;
-    color: white;
-    text-shadow:
-    -1px -1px 0 #354A01,
-    1px -1px 0 #354A01,
-    -1px 1px 0 #354A01,
-    1px 1px 0 #354A01;
+  text-align: center;
+  background-color: #59a80f;
+  box-shadow: 0px -5px 10px #274a07 inset;
+  position: fixed;
+  color: white;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 
-
-
 .title {
-    font-size:60px;
-    
+  font-size: 60px;
 }
 
 .sidebar {
-    background-color:#C0C0A0;
-    margin-top:10px;
-    padding-left: 0px;
-    padding-right:0px;
-    margin-left:10px;
-    overflow:auto;
-    text-align:center;
-    width:250px;
-    float:left;
-    position:fixed;
+  background-color: #C0C0A0;
+  margin-top: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 10px;
+  overflow: auto;
+  text-align: center;
+  width: 250px;
+  float: left;
+  position: fixed;
 }
 
 .reason {
-    font-size:30px;
-    line-height:85.7px;
+  font-size: 30px;
+  line-height: 85.7px;
 }
 
-
 .nav > li {
-    margin-top:5px;
-    margin-bottom:5px;
-    
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .nav > li > a {
-    color: white;
-    font-weight: bold;
-    text-shadow:
-    -1px -1px 0 #657A31,
-    1px -1px 0 #657A31,
-    -1px 1px 0 #657A31,
-    1px 1px 0 #657A31;
-    background-color: #A5BA71;
-    border-top: 1px solid #657A31;
-    border-bottom: 1px solid #657A31;
-    box-shadow: -3px -3px 5px #657A31 inset;
+  color: white;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  background-color: #59a80f;
+  border-top: 1px solid #274a07;
+  border-bottom: 1px solid #274a07;
+  box-shadow: -3px -3px 5px #274a07 inset;
 }
 
 .nav > li > a:hover {
-    color: white;
-    background-color: #B5CA81;
+  color: white;
+  background-color: #72d713;
 }
 
 .profile-picture {
-    width:100%;
+  width: 100%;
 }
 
 .profile-name {
-    text-align:left;
+  text-align: left;
 }
 
 .profile-picture-bar {
-    margin-left:10px;
-    margin-right:10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 a.sign-out {
-    color: #6B880B;
+  color: #6B880B;
 }
 
 a.sign-out:hover {
-    color: #4B6800;
+  color: #4B6800;
 }
 
 .following-list {
-    margin-top:10px;
-    padding-top:2px;
+  margin-top: 10px;
+  padding-top: 2px;
 }
 
 .following-ul {
-    text-align:left;
+  text-align: left;
 }
 
 .content {
-    height:1000px;
-    float:left;
-    margin-top: 10px;
+  height: 1000px;
+  float: left;
+  margin-top: 10px;
 }
 
 body {
-    background-image: url("greyzz.png");
-    background-repeat:repeat;
+  background-image: url("greyzz.png");
+  background-repeat: repeat;
 }
