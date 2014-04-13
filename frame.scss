@@ -12,6 +12,11 @@ $textinsidecolor: #FFFFFF;
     background-color:$maincolor;
     box-shadow: 0px -5px 10px darken($maincolor,20%) inset;
     position: fixed;
+    
+    width: 100%;
+}
+
+.top-banner-bubble {
     color: $textinsidecolor;
     text-shadow:
     -1px -1px 0 darken($maincolor,40%),
@@ -23,7 +28,9 @@ $textinsidecolor: #FFFFFF;
 
 
 .title {
-    font-size:60px;
+    font-family: 'Changa One', cursive;
+    font-size:36px;
+    text-align:left;
     
 }
 
@@ -42,7 +49,8 @@ $textinsidecolor: #FFFFFF;
 
 .reason {
     font-size:30px;
-    line-height:85.7px;
+    text-align:right;
+    line-height:51px;
 }
 
 
@@ -55,7 +63,7 @@ $textinsidecolor: #FFFFFF;
 .main-nav > li > a {
     color: $textinsidecolor;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     text-shadow:
     -1px -1px 0 darken($maincolor,40%),
     1px -1px 0 darken($maincolor,40%),
@@ -65,6 +73,8 @@ $textinsidecolor: #FFFFFF;
     border-top: 1px solid darken($maincolor,20%);
     border-bottom: 1px solid darken($maincolor,20%);
     box-shadow: -3px -3px 5px darken($maincolor,20%) inset;
+    padding-top: 5px;
+    padding-bottom:5px;
 }
 
 .main-nav > li > a:hover {
@@ -73,35 +83,34 @@ $textinsidecolor: #FFFFFF;
 }
 
 .profile-picture {
-    width:100%;
+    height:40px;
+    float:right;
+    margin-right:10px;
+    margin-left:5px;
 }
 
 .profile-name {
     text-align:left;
-}
-
-.profile-picture-bar {
-    margin-left:10px;
-    margin-right:10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    float:right;
 }
 
 a.sign-out {
-    color: darken($maincolor,30%);
+    color: black;
 }
 
 a.sign-out:hover {
-    color: darken($maincolor,40%);
+    color: black;
 }
 
 .following-list {
     margin-top:10px;
     padding-top:2px;
+    
 }
 
 .following-list-label {
     margin-bottom:7px;
+    font-weight:bold;
 }
 
 .following-nav > li > a {
@@ -116,7 +125,7 @@ a.sign-out:hover {
     
 }
 
-.content {
+#content {
     height:1000px;
     float:left;
     margin-top: 10px;
@@ -130,4 +139,38 @@ body {
 
 .following-line {
     width:80px;
+}
+
+.top-nav > li {
+    float:right;
+}
+
+.top-nav > li > a {
+    color:$textinsidecolor;
+    text-shadow:
+    -1px -1px 0 darken($maincolor,40%),
+    1px -1px 0 darken($maincolor,40%),
+    -1px 1px 0 darken($maincolor,40%),
+    1px 1px 0 darken($maincolor,40%);
+    cursor: pointer;
+    font-weight:bold;
+    font-size:16px;
+    
+}
+
+.top-nav > li > a:hover {
+    color:$textinsidecolor;
+    background-color: lighten($maincolor, 10%);
+}
+
+.top-links {
+    padding-right:40px;
+    margin-top:5px;
+}
+
+#frame-progress {
+    margin-left:10px;
+    margin-right:10px;
+    margin-top: 10px;
+    text-align:center;
 }

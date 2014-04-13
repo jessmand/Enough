@@ -3,12 +3,18 @@
   background-color: #b9d68a;
   box-shadow: 0px -5px 10px #8bb941 inset;
   position: fixed;
+  width: 100%;
+}
+
+.top-banner-bubble {
   color: white;
   text-shadow: -1px -1px 0 #526e26, 1px -1px 0 #526e26, -1px 1px 0 #526e26, 1px 1px 0 #526e26;
 }
 
 .title {
-  font-size: 60px;
+  font-family: 'Changa One', cursive;
+  font-size: 36px;
+  text-align: left;
 }
 
 .sidebar {
@@ -26,7 +32,8 @@
 
 .reason {
   font-size: 30px;
-  line-height: 85.7px;
+  text-align: right;
+  line-height: 51px;
 }
 
 .main-nav > li {
@@ -37,12 +44,14 @@
 .main-nav > li > a {
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   text-shadow: -1px -1px 0 #526e26, 1px -1px 0 #526e26, -1px 1px 0 #526e26, 1px 1px 0 #526e26;
   background-color: #b9d68a;
   border-top: 1px solid #8bb941;
   border-bottom: 1px solid #8bb941;
   box-shadow: -3px -3px 5px #8bb941 inset;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .main-nav > li > a:hover {
@@ -51,26 +60,23 @@
 }
 
 .profile-picture {
-  width: 100%;
+  height: 40px;
+  float: right;
+  margin-right: 10px;
+  margin-left: 5px;
 }
 
 .profile-name {
   text-align: left;
-}
-
-.profile-picture-bar {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  float: right;
 }
 
 a.sign-out {
-  color: #6f9334;
+  color: black;
 }
 
 a.sign-out:hover {
-  color: #526e26;
+  color: black;
 }
 
 .following-list {
@@ -80,6 +86,7 @@ a.sign-out:hover {
 
 .following-list-label {
   margin-bottom: 7px;
+  font-weight: bold;
 }
 
 .following-nav > li > a {
@@ -93,7 +100,7 @@ a.sign-out:hover {
   background-color: #d0dcaa;
 }
 
-.content {
+#content {
   height: 1000px;
   float: left;
   margin-top: 10px;
@@ -107,4 +114,33 @@ body {
 
 .following-line {
   width: 80px;
+}
+
+.top-nav > li {
+  float: right;
+}
+
+.top-nav > li > a {
+  color: white;
+  text-shadow: -1px -1px 0 #526e26, 1px -1px 0 #526e26, -1px 1px 0 #526e26, 1px 1px 0 #526e26;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.top-nav > li > a:hover {
+  color: white;
+  background-color: #d0e3b0;
+}
+
+.top-links {
+  padding-right: 40px;
+  margin-top: 5px;
+}
+
+#frame-progress {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-align: center;
 }
