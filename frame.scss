@@ -2,8 +2,9 @@
 //copy and paste into http://sassmeister.com/
 //copy and paste result into css file
 
-$maincolor: #59A80F;
-$sidebarcolor: #C0C0A0;
+$maincolor: #B9D68A;
+$sidebarcolor: #E0E0C0;
+$textinsidecolor: #FFFFFF;
 
 .top-banner {
     
@@ -11,7 +12,7 @@ $sidebarcolor: #C0C0A0;
     background-color:$maincolor;
     box-shadow: 0px -5px 10px darken($maincolor,20%) inset;
     position: fixed;
-    color: white;
+    color: $textinsidecolor;
     text-shadow:
     -1px -1px 0 darken($maincolor,40%),
     1px -1px 0 darken($maincolor,40%),
@@ -45,15 +46,16 @@ $sidebarcolor: #C0C0A0;
 }
 
 
-.nav > li {
+.main-nav > li {
     margin-top:5px;
     margin-bottom:5px;
     
 }
 
-.nav > li > a {
-    color: white;
+.main-nav > li > a {
+    color: $textinsidecolor;
     font-weight: bold;
+    font-size: 20px;
     text-shadow:
     -1px -1px 0 darken($maincolor,40%),
     1px -1px 0 darken($maincolor,40%),
@@ -65,9 +67,9 @@ $sidebarcolor: #C0C0A0;
     box-shadow: -3px -3px 5px darken($maincolor,20%) inset;
 }
 
-.nav > li > a:hover {
-    color: white;
-    background-color: lighten($maincolor,10%);
+.main-nav > li > a:hover {
+    color: $textinsidecolor;
+    background-color: lighten($maincolor,5%);
 }
 
 .profile-picture {
@@ -86,11 +88,11 @@ $sidebarcolor: #C0C0A0;
 }
 
 a.sign-out {
-    color: #6B880B;
+    color: darken($maincolor,30%);
 }
 
 a.sign-out:hover {
-    color: #4B6800;
+    color: darken($maincolor,40%);
 }
 
 .following-list {
@@ -98,17 +100,34 @@ a.sign-out:hover {
     padding-top:2px;
 }
 
-.following-ul {
-    text-align:left;
+.following-list-label {
+    margin-bottom:7px;
+}
+
+.following-nav > li > a {
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.following-nav > li > a:hover {
+    color: black;
+    background-color: mix($sidebarcolor, $maincolor, 60%);
+    
 }
 
 .content {
     height:1000px;
     float:left;
     margin-top: 10px;
+    background-image: url("greyzz.png");
+    background-repeat:repeat;
 }
 
 body {
-    background-image: url("greyzz.png");
-    background-repeat:repeat;
+    background-color: lighten(desaturate($sidebarcolor, 20%), 15%);
+}
+
+.following-line {
+    width:80px;
 }

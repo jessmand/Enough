@@ -5,7 +5,7 @@ $(function() {
         console.log(height);
         $('.sidebar').height(height);
         var contentLeft = $('.sidebar').width()+20;
-        var contentWidth = $(window).width()-contentLeft;
+        var contentWidth = $(window).width()-contentLeft-10;
         $('.content').css('margin-left', contentLeft);
         $('.content').width(contentWidth);
     }
