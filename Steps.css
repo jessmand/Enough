@@ -1,0 +1,47 @@
+.main-container {
+}
+
+.input-group {
+	padding-bottom: 10px;
+}
+
+.input-bio {
+	height: 100px;
+}
+
+.btn {
+	color: white;
+  	font-weight: bold;
+  	font-size: 18px;
+  	text-shadow: -1px -1px 0 #526e26, 1px -1px 0 #526e26, -1px 1px 0 #526e26, 1px 1px 0 #526e26;
+  	background-color: #b9d68a;
+  	border: 2px solid black;
+  	padding-top: 5px;
+  	padding-bottom: 5px;
+}
+
+.btn:hover {
+	background-color: #526e26;
+}
+
+#buttonBack {
+	float: left;
+}
+
+#buttonNext {
+	float: right;
+}
+
+#buttonFinish {
+	float: right;
+	background-color: #FF9900;
+}
+
+.statusbar {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	padding-bottom: 50px;
+	height: 150%;
+}
