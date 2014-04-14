@@ -105,7 +105,11 @@ a.sign-out:hover {
   margin-top: 10px;
   background-image: url("greyzz.png");
   background-repeat: repeat;
+<<<<<<< HEAD
     text-align:center;
+=======
+  z-index: 1; 
+>>>>>>> 9e0c9738e9ee974d506c95bba27c06752b1ea01e
 }
 
 body {

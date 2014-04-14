@@ -34,13 +34,13 @@
 	border-radius: 5px;
 }
 
-#post {
+.post {
 	height: 55px;
 	line-height: 15px;
 	border-bottom: 1px solid gray;
 	padding: 20px 0px;
 }
-#post:hover {
+.post:hover {
 	background-color: #d0dcaa;
 }
 
