@@ -1,0 +1,26 @@
+#header {
+	text-align: center;
+	font-size: 40px;
+	margin: 15px;
+}
+
+.tile {
+	padding: 15px;
+	height: 115px;
+	margin: 25px 0px 0px 15px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 15px;
+}
+
+.tile:hover {
+	background-color: #d0dcaa;
+}
+
+.sub_title {
+	font-size: 20px;
+	text-align: center;
+	font-weight: 700;
+	border-bottom: solid 1px gray;
+	margin-bottom: 5px;
+}

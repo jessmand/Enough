@@ -1,0 +1,52 @@
+#header {
+	text-align: center;
+	font-size: 40px;
+	margin: 15px;
+}
+
+#sub_header {
+	text-align: center;
+	font-size: 20px;
+	margin: 15px;
+}
+
+.forum-nav {
+	background-color: #DADADA;
+}
+
+.forum-nav.active {
+	background-color: white;
+}
+
+#btn-search {
+	float: right;
+}
+
+#new_search {
+	margin-top: 25px;
+}
+
+#forum_container {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 100%;
+	margin-top: 15px;
+	height: 400px;
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+#post {
+	height: 55px;
+	line-height: 15px;
+	border-bottom: 1px solid gray;
+	padding: 20px 0px;
+}
+#post:hover {
+	background-color: #d0dcaa;
+}
+
+#number {
+	color: blue;
+}
