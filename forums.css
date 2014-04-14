@@ -41,11 +41,11 @@
 	padding: 20px 0px;
 }
 .post:hover {
-	background-color: #d0dcaa;
+	background-color: #B9D68A;
 }
 
-#number {
-	color: blue;
+.number {
+	color: #526e26;
 }
 
 .align-left {
@@ -58,4 +58,15 @@
 .search-field {
     width:300px;
     float:right;
+}
+
+.good-post-button {
+    cursor: pointer;
+    color:black;
+    margin-left:5px;
+}
+
+.good-post-button:hover {
+    color:white;
+    text-decoration: none;
 }

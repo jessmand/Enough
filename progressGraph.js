@@ -49,17 +49,17 @@ var drawChart = function (data, containerId, weekGoal) {
 
     var savedTip = d3.tip()
         .attr('class', 'd3-tip')
-        .offset([-10, 0])
+        .offset([-15, 0])
         .html("Cigarettes saved: " + totalSaved());
     
     var startingTip = d3.tip()
         .attr('class', 'd3-tip')
-        .offset([-10, 0])
+        .offset([-15, 0])
         .html("Starting cigarettes: " + maxCigarettes);
     
     var weeklyGoalTip = d3.tip()
         .attr('class', 'd3-tip')
-        .offset([-10, 0])
+        .offset([-15, -0])
         .html("This week's goal: " + weekGoal);
 
     
@@ -249,11 +249,25 @@ var drawChart = function (data, containerId, weekGoal) {
     
     chartBody.append("path")
         .attr("class", "saved-area")
-        .attr("d", savedArea(data)).on('mouseover', savedTip.show).on('mouseout', savedTip.hide)
+        .attr("d", savedArea(data))
+        .on('mouseover', function() { savedTip.show(d3.mouse(this)[0]+$("#"+containerId).offset().left+margin.left-25)})
+        .on('mouseout', savedTip.hide)
         .attr("transform", "translate(5,0)");
     
-    chartBody.append("path").attr("d", startingLine(d3.time.days(minDate,maxDate,1))).attr("class", "starting-line").on('mouseover', startingTip.show).on('mouseout', startingTip.hide).attr("transform", "translate(5,0)");
-    chartBody.append("path").attr("d", weeklyGoalLine(d3.time.days(minDate,maxDate,1))).attr("class", "weekly-goal-line").on('mouseover', weeklyGoalTip.show).on('mouseout', weeklyGoalTip.hide).attr("transform", "translate(5,0)");
+    chartBody.append("path")
+        .attr("d", startingLine(d3.time.days(minDate,maxDate,1)))
+        .attr("class", "starting-line")
+        .on('mouseover', function() {startingTip.show(d3.mouse(this)[0]+$("#"+containerId).offset().left+margin.left-25)})
+        .on('mouseout', startingTip.hide)
+        .attr("transform", "translate(5,0)");
+    
+    chartBody.append("path")
+        .attr("d", weeklyGoalLine(d3.time.days(minDate,maxDate,1)))
+        .attr("class", "weekly-goal-line")
+        .on('mouseover', function() { weeklyGoalTip.show(d3.mouse(this)[0]+$("#"+containerId).offset().left+margin.left-25)})
+        .on('mouseout', weeklyGoalTip.hide)
+        .attr("transform", "translate(5,0)");
+    
     chartBody.append("path").attr("d", line(data)).attr("class", "progress-line").attr("transform", "translate(5,0)");
     
     

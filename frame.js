@@ -15,5 +15,9 @@ $(function() {
     
     
     $(window).resize(sidebarHeight);
-    
+    var path = "file:///C:/Users/Jessica/Documents/6.813/Enough";
+    $(".main-nav").append("<li><a href='"+path+"/myprogress.html'>My Progress</a></li>")
+        .append("<li><a href='"+path+"/people.html'>People</a></li>")
+        .append("<li><a href='"+path+"/forums.html'>Forums</a></li>")
+        .append("<li><a href='"+path+"/resources.html'>Resources</a></li>");  
 });
