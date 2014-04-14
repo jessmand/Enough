@@ -77,10 +77,10 @@ var drawChart = function (data, containerId, weekGoal) {
         left: 100
     },
         width = $('#'+containerId).width() - 100 - margin.left - margin.right,
-        height = 520 - margin.top - margin.bottom;
+        height = 450 - margin.top - margin.bottom;
     
-    var marginPane = {top: 420, right: 40, bottom: 20, left: 100},
-        heightPane = 520 - marginPane.top - marginPane.bottom,
+    var marginPane = {top: 350, right: 40, bottom: 20, left: 100},
+        heightPane = 450 - marginPane.top - marginPane.bottom,
         widthPane = $('#'+containerId).width() - 100 - margin.left - margin.right;
 
 

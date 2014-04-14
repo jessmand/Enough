@@ -18,9 +18,6 @@
 	background-color: white;
 }
 
-#btn-search {
-	float: right;
-}
 
 #new_search {
 	margin-top: 25px;
@@ -49,4 +46,16 @@
 
 #number {
 	color: blue;
+}
+
+.align-left {
+    text-align:left;
+}
+.align-right {
+    text-align:right;
+}
+
+.search-field {
+    width:300px;
+    float:right;
 }
