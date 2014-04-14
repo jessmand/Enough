@@ -4,6 +4,7 @@
   box-shadow: 0px -5px 10px #8bb941 inset;
   position: fixed;
   width: 100%;
+  z-index: 2; 
 }
 
 .top-banner-bubble {
@@ -106,6 +107,7 @@ a.sign-out:hover {
   margin-top: 10px;
   background-image: url("greyzz.png");
   background-repeat: repeat;
+  z-index: 1; 
 }
 
 body {
