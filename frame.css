@@ -155,3 +155,53 @@ body {
 h1.page-title {
     font-family: 'Changa One', cursive;
 }
+
+#update-progress-btn {
+    background-color: #FFB300;
+    margin-bottom:15px;
+    box-shadow: -7px -7px 7px #FF9900 inset;
+    font-weight: bold;
+    width:200px;
+    height:50px;
+    text-shadow: text-shadow: 0 -2px 0 #888;
+    font-size:18px;
+}
+
+#update-progress-btn:hover {
+    background-color: #FFC310;
+}
+
+.day-needs-update {
+    background-color:#FFB300;
+}
+
+.update-progress-body {
+    height:310px;
+}
+
+.date-selected {
+    text-align:center;
+    font-weight: bold;
+    margin-bottom:25px;
+    font-size: 20px;
+}
+
+#update-div .control-label {
+    font-weight: normal;
+}
+
+#update-div .form-control:focus {
+    box-shadow: none;
+}
+
+.update-button-div {
+    text-align: right;
+}
+
+#update-div {
+    margin-top:30px;
+}
+
+.alert-saved {
+    display:none;
+}
