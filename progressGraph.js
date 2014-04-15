@@ -313,7 +313,17 @@ var drawChart = function (data, containerId, weekGoal) {
       .attr("height", heightPane + 7);
     
     function brushed() {
-      x.domain(brush.empty() ? xPane.domain() : brush.extent());
+      
+        var extent0 = brush.extent(),
+              extent1 = extent0.map(d3.time.day.round);
+        if (extent1[0] >= extent1[1]) {
+            extent1[0] = d3.time.day.floor(extent0[0]);
+            extent1[1] = d3.time.day.ceil(extent0[1]);
+          }
+
+        d3.select(this).call(brush.extent(extent1));
+        
+        x.domain(brush.empty() ? xPane.domain() : brush.extent());
         focus.select(".x.axis").call(xAxis);
       chartBody.select(".progress-line").attr("d", line(data));
         chartBody.select(".starting-line").attr("d", startingLine(d3.time.days(minDate,maxDate,1)));
