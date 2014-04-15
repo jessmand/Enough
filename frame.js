@@ -33,9 +33,9 @@ $(function() {
     $(window).resize(sidebarHeight);
     var path = "file:///C:/Users/Jessica/Documents/6.813/Enough";
     $(".main-nav").append("<li><a href='./myprogress.html'>My Progress</a></li>")
-        .append("<li><a href='/people.html'>People</a></li>")
-        .append("<li><a href='/forums.html'>Forums</a></li>")
-        .append("<li><a href='/resources.html'>Resources</a></li>");
+        .append("<li><a href='./people.html'>People</a></li>")
+        .append("<li><a href='./forums.html'>Forums</a></li>")
+        .append("<li><a href='./resources.html'>Resources</a></li>");
     
     
     var calendar = "<div id='calendar' class='col-md-6'></div>";
