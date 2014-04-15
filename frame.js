@@ -104,9 +104,21 @@ $(function() {
         today.setMilliseconds(0);
     
     var signupDate = new Date(2014, 2, 1);
+    var maximumDate;
+    var updateMaximumDate = function() {
+        maximumDate = new Date(dateList[dateList.length-1].date.getTime());
+        maximumDate.setDate(maximumDate.getDate()+1);
+        maximumDate = new Date(Math.min.apply(null, [maximumDate, today]));
+        if (!(dateList[dateList.length-1].date.getDate() == today.getDate() && dateList[dateList.length-1].date.getMonth() == today.getMonth() && dateList[dateList.length-1].date.getYear() == today.getYear())) {
+            $('#update-progress-btn span').remove();
+            var needsUpdateAlert = $("<span class='glyphicon glyphicon-plus-sign'></span>").css('color', "#FFB300").css("margin-left", "5px");
+            $('#update-progress-btn').append(needsUpdateAlert);
+        }
+    }
+    updateMaximumDate();
 
     $('body').append(updateProgressModal);
-    $( "#calendar" ).datepicker({ minDate: signupDate, maxDate: 0, beforeShowDay: function(d) {
+    $( "#calendar" ).datepicker({ minDate: signupDate, maxDate: maximumDate, defaultDate: maximumDate, beforeShowDay: function(d) {
         var present = false;
         if (d<new Date(2014, 2, 1) || d>today) {
             return [true, ""];
@@ -117,7 +129,7 @@ $(function() {
             }
         }
         if (present == false) {
-            return [true, "day-needs-update"];
+            return [true, "day-needs-update", "Update"];
         }
         else {
             return [true, ""];
@@ -126,6 +138,7 @@ $(function() {
         updateProgressForDate($( "#calendar" ).datepicker( "getDate" ));
     }
     });
+    
     
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -181,8 +194,8 @@ $(function() {
                 } 
                 data.push({"date":yyyy+"-"+mm+"-"+dd, "cigarettes":parseInt($("#num-cigarettes").val())});
                 dateList.push({"date":getDate(data[data.length-1]), "cigarettes":data[data.length-1].cigarettes});
-                
-                $( "#calendar" ).datepicker('refresh');
+                updateMaximumDate();
+                $( "#calendar" ).datepicker('option', 'maxDate', maximumDate).datepicker('refresh');
                 
                 
                 $( "#update-cigarettes-btn").unbind( "click" );
@@ -195,11 +208,14 @@ $(function() {
         
         
     }
- 
+    
+    
+    
+    
     $('#update-progress-btn').on('click', function() {
         $('#update-progress-modal').modal('toggle');
-        $( "#calendar" ).datepicker( "setDate", today );
-        updateProgressForDate(today);
+        $("#calendar").datepicker('option', 'defaultDate', maximumDate)
+        updateProgressForDate(maximumDate);
     });
     
     
