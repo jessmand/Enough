@@ -1,12 +1,11 @@
 $(function() {
     
     $("#post-search").hide();
-    var showResults=function(){
+
+    $("#search").click(function() {
         $("#pre-search").hide();
         $("#post-search").show();
-    }
-
-    $("#search").click(showResults); 
+    }); 
 
     $("#close-modal").click(function(){
         $("#joeK-info").modal('hide');
