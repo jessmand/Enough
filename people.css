@@ -1,0 +1,47 @@
+.people-pic{
+	height: 200px;
+	width: 200px; 
+}
+
+.thumbnail > img {
+    float: left;
+    height: 200px;
+    overflow: hidden;
+    margin-right: 9px;
+}
+
+.thumbnail {
+	width: 450px; 
+    float: left; 
+}
+
+.thumbnail > .caption {
+    padding: 4px;
+}
+
+.btn-primary{
+	background-color: #b9d68a; 
+	border-color: #b9d68a;
+}
+
+#search{
+	float: right; 
+}
+
+.people-info{
+	text-align: center; 
+}
+
+#close-modal{
+	margin: 10px; 
+	float: right;
+}
+
+.bio{
+	margin: 10px; 
+	text-align: left; 
+	border: 1px black; 
+}
+
+
+
