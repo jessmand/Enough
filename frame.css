@@ -1,9 +1,10 @@
 .top-banner {
   text-align: center;
   background-color: #b9d68a;
-  box-shadow: 0px -5px 10px #8bb941 inset;
   position: fixed;
+  border-bottom: 1px solid #8bb941;
   width: 100%;
+    z-index:1000;
 }
 
 .top-banner-bubble {
@@ -49,7 +50,6 @@
   background-color: #b9d68a;
   border-top: 1px solid #8bb941;
   border-bottom: 1px solid #8bb941;
-  box-shadow: -3px -3px 5px #8bb941 inset;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -105,6 +105,8 @@ a.sign-out:hover {
   margin-top: 10px;
   background-image: url("greyzz.png");
   background-repeat: repeat;
+    text-align:center;
+  z-index: 1; 
 }
 
 body {
@@ -129,7 +131,7 @@ body {
 
 .top-nav > li > a:hover {
   color: white;
-  background-color: #d0e3b0;
+  background-color: #d0dcaa;
 }
 
 .top-links {
@@ -142,4 +144,64 @@ body {
   margin-right: 10px;
   margin-top: 10px;
   text-align: center;
+    margin-bottom:20px;
+}
+
+.progress {
+    margin-bottom:5px;
+    margin-top:5px;
+}
+
+h1.page-title {
+    font-family: 'Changa One', cursive;
+}
+
+#update-progress-btn {
+    background-color: #FFB300;
+    margin-bottom:15px;
+    box-shadow: -7px -7px 7px #FF9900 inset;
+    font-weight: bold;
+    width:200px;
+    height:50px;
+    text-shadow: text-shadow: 0 -2px 0 #888;
+    font-size:18px;
+}
+
+#update-progress-btn:hover {
+    background-color: #FFC310;
+}
+
+.day-needs-update {
+    background-color:#FFB300;
+}
+
+.update-progress-body {
+    height:310px;
+}
+
+.date-selected {
+    text-align:center;
+    font-weight: bold;
+    margin-bottom:25px;
+    font-size: 20px;
+}
+
+#update-div .control-label {
+    font-weight: normal;
+}
+
+#update-div .form-control:focus {
+    box-shadow: none;
+}
+
+.update-button-div {
+    text-align: right;
+}
+
+#update-div {
+    margin-top:30px;
+}
+
+.alert-saved {
+    display:none;
 }
