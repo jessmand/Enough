@@ -21,7 +21,18 @@ $(function() {
 	});
 
 	$("#button3to2").on("click", function() {
-		console.log("HI");
 		location.href="./StepTwo.html";
 	});
+    
+    
+    
+    var maxGoalCharacters = 140;
+    $('.goal-character-count').html(maxGoalCharacters + ' characters remaining');
+
+    $('#goal').keyup(function() {
+        var text_length = $('#goal').val().length;
+        var text_remaining = maxGoalCharacters - text_length;
+
+        $('.goal-character-count').html(text_remaining + ' characters remaining');
+    });
 });

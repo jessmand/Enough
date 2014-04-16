@@ -5,7 +5,11 @@
         <script src="external_js/jquery-1.9.0.min.js"></script>
         <link rel="stylesheet" href="Steps.css" />
         <link href='http://fonts.googleapis.com/css?family=Changa+One' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+        <script src="jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
         <script src="Steps.js"></script>
+        
+        
     </head>
     <body>
 	    <div class=container-fluid>
@@ -36,7 +40,7 @@
 						  	<div class="form-group">
 						    	<label class="col-sm-2 control-label">Cigarettes/Day</label>
 						    	<div class="col-sm-8">
-						    		<select class="form-control">
+						    		<!--<select class="form-control">
 									  	<option>1</option>
 									  	<option>2</option>
 									  	<option>3</option>
@@ -58,7 +62,8 @@
 									  	<option>19</option>
 									  	<option>20</option>
 									  	<option>21+</option>
-									</select>
+									</select>-->
+                                    <input id="num-cigarettes-spinner" />
 						    	</div>
 						  	</div>
 						</form>
@@ -79,5 +84,9 @@
 				</div>
 			</div>
 		</div>
+        <script>
+            $("#num-cigarettes-spinner").spinner({min:0});
+    $( "#num-cigarettes-spinner" ).spinner( "value", 0 );
+            </script>
 	</body>
 </html>
