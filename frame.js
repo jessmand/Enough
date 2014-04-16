@@ -104,9 +104,21 @@ $(function() {
         today.setMilliseconds(0);
     
     var signupDate = new Date(2014, 2, 1);
+    var maximumDate;
+    var updateMaximumDate = function() {
+        maximumDate = new Date(dateList[dateList.length-1].date.getTime());
+        maximumDate.setDate(maximumDate.getDate()+1);
+        maximumDate = new Date(Math.min.apply(null, [maximumDate, today]));
+        if (!(dateList[dateList.length-1].date.getDate() == today.getDate() && dateList[dateList.length-1].date.getMonth() == today.getMonth() && dateList[dateList.length-1].date.getYear() == today.getYear())) {
+            $('#update-progress-btn span').remove();
+            var needsUpdateAlert = $("<span class='glyphicon glyphicon-plus-sign'></span>").css('color', "#FFB300").css("margin-left", "5px");
+            $('#update-progress-btn').append(needsUpdateAlert);
+        }
+    }
+    updateMaximumDate();
 
     $('body').append(updateProgressModal);
-    $( "#calendar" ).datepicker({ minDate: signupDate, maxDate: 0, beforeShowDay: function(d) {
+    $( "#calendar" ).datepicker({ minDate: signupDate, maxDate: maximumDate, defaultDate: maximumDate, beforeShowDay: function(d) {
         var present = false;
         if (d<new Date(2014, 2, 1) || d>today) {
             return [true, ""];
@@ -117,7 +129,7 @@ $(function() {
             }
         }
         if (present == false) {
-            return [true, "day-needs-update"];
+            return [true, "day-needs-update", "Update"];
         }
         else {
             return [true, ""];
@@ -126,6 +138,7 @@ $(function() {
         updateProgressForDate($( "#calendar" ).datepicker( "getDate" ));
     }
     });
+    
     
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -181,8 +194,8 @@ $(function() {
                 } 
                 data.push({"date":yyyy+"-"+mm+"-"+dd, "cigarettes":parseInt($("#num-cigarettes").val())});
                 dateList.push({"date":getDate(data[data.length-1]), "cigarettes":data[data.length-1].cigarettes});
-                
-                $( "#calendar" ).datepicker('refresh');
+                updateMaximumDate();
+                $( "#calendar" ).datepicker('option', 'maxDate', maximumDate).datepicker('refresh');
                 
                 
                 $( "#update-cigarettes-btn").unbind( "click" );
@@ -195,29 +208,138 @@ $(function() {
         
         
     }
- 
+    
+    
+    
+    
     $('#update-progress-btn').on('click', function() {
         $('#update-progress-modal').modal('toggle');
-        $( "#calendar" ).datepicker( "setDate", today );
-        updateProgressForDate(today);
+        $("#calendar").datepicker('option', 'defaultDate', maximumDate)
+        updateProgressForDate(maximumDate);
     });
     
     
     
-    /*
-    $('#update-progress-modal').on('shown.bs.modal', function (e) {
-        if (dateSelector === undefined) {
-            dateSelector=$("#calendar").calendarPicker(monthNames:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-                useWheel:true,
-                callbackDelay:500,
-                years:1,
-                months:3,
-                days:4,
-                showDayArrows:false,
-                callback:function(cal){
-                });
+    var viewFollowingModal = $('<div id="view-following-modal" class="modal fade" aria-hidden="true">'
+  +'<div class="modal-dialog">'
+    +'<div class="modal-content">'
+      +'<div class="modal-header">'
+        +'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
+        +'<h4 class="modal-title"></h4>'
+      +'</div>'
+      +'<div class="modal-body container-fluid view-following-body">'
+    +'<div id="view-graph-container"></div>'
+                    +'<div class="row view-saved-cigarettes-container">'
+                       + '<div class="col-md-4 col-md-offset-4"><b>Cigarettes resisted:</b> <span class="view-saved-cigarettes"></span></div>'
+                   + '</div>'
+                    +'<div class="row view-cigarette-facts-container">'
+                      + ' <div class="col-md-3 col-md-offset-3"><b>Life regained:</b> You will <span class="view-extended-life"></span>.</div>'
+                       + '<div class="col-md-3"><b>Money saved:</b> <span class="view-saved-money"></span></div>'
+                   + '</div>'
+    +'<div class="row">'
+                        +'<div id="view-bio-container" class="col-md-6 col-md-offset-3"><div class="view-bio-title"><span>Biography</span></div><span class="bio-text"></span"></div>'
+                    +'</div>'
+      +'</div>'
+    +'</div><!-- /.modal-content -->'
+  +'</div><!-- /.modal-dialog -->'
++'</div><!-- /.modal -->');
+    $('body').append(viewFollowingModal);
+    
+    var name = "Joe K.";
+    var viewData = [{
+            'date': "2014-03-01",
+            'cigarettes': 7
+        }, {
+            'date': "2014-03-02",
+            'cigarettes': 7
+        }, {
+            'date': "2014-03-03",
+            'cigarettes': 8
+        }, {
+            'date': "2014-03-04",
+            'cigarettes': 7
+        }, {
+            'date': "2014-03-05",
+            'cigarettes': 7
+        }, {
+            'date': "2014-03-06",
+            'cigarettes': 6
+        }, {
+            'date': "2014-03-07",
+            'cigarettes': 6
+        }, {
+            'date': "2014-03-08",
+            'cigarettes': 5
+        }, {
+            'date': "2014-03-09",
+            'cigarettes': 6
+        }, {
+            'date': "2014-03-10",
+            'cigarettes': 5
+        }, {
+            'date': "2014-03-11",
+            'cigarettes': 4
+        }, {
+            'date': "2014-03-12",
+            'cigarettes': 4
+        }, {
+            'date': "2014-03-13",
+            'cigarettes': 3
+        }, {
+            'date': "2014-03-14",
+            'cigarettes': 4
+        }];
+    var bio = 'I am a 35 year old with a loving wife and 3 kids. I want to be around as long as possible to help my wife handle our kids, and to be there for them while they grow up. If that means quiting a bad habit then thats what I\'m going to do. The love I recieve from my family on a daily basis is worth the feeling of a lifetime of cigarettes. If you are still reading this then good for you! I just made all of this up to fill in the bio page because I couldn\'t think of anything else to write. So now I am rambling on and on and on. Whats a great pick up line you ask? Boy: "Hey girl, do you buy your pants on sale?" Girl: "Huh?" Boy:"Cause at my house they would be 100% off"';
+    var viewGoal = 3;
+    
+    var extendLifeMilestones = ["see another smile", "share another hug", "see another sunset", "have another birthday"];
+    
+    var whichMilestone = function(saved) {
+        var milestone = null;
+        if (saved < 1) {
+            milestone = 0;
+        } else if (saved<6) {
+            milestone = 1;
+        } else if (saved<21) {
+            milestone = 2;
+        } else if (saved<51) {
+            milestone = 3;
         }
-    });*/
+        if (milestone == null) {
+            return "conquer smoking";
+        } else {
+            return extendLifeMilestones[milestone];
+        }
+    }
+    
+    var cigaretteCost = .5;
+    
+    var savedMoney = function(savedCigarettes) {
+        var totalCost = savedCigarettes*cigaretteCost;
+         return ("$" + totalCost.toFixed(2));
+    }
+    
+    $('.following-nav a, .btn-view').on('click', function() {
+        //$('#view-following-modal modal-dialog').width
+        $('#view-following-modal').modal('toggle');
+        $('#view-following-modal .modal-title').html(name);
+        
+        
+        
+        
+    });
+    
+    $('#view-following-modal').on('shown.bs.modal', function (e) {
+            $("#view-graph-container").empty();
+            var totalSaved = drawChart(viewData, "view-graph-container", 3);
+            
+            
+            $('.view-saved-cigarettes').html(totalSaved);
+            $(".view-extended-life").html(whichMilestone(totalSaved));
+            $(".view-saved-money").html(savedMoney(totalSaved));
+            $('#view-following-modal #view-bio-container .bio-text').html(bio);
+        
+    });
+
 
 });

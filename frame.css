@@ -157,18 +157,19 @@ h1.page-title {
 }
 
 #update-progress-btn {
-    background-color: #FFB300;
+    /*background-color: #FFB300;*/
     margin-bottom:15px;
-    box-shadow: -7px -7px 7px #FF9900 inset;
+    /*box-shadow: -7px -7px 7px #FF9900 inset;*/
     font-weight: bold;
     width:200px;
     height:50px;
     text-shadow: text-shadow: 0 -2px 0 #888;
     font-size:18px;
+    color: black;
 }
 
 #update-progress-btn:hover {
-    background-color: #FFC310;
+    /*background-color: #FFC310;*/
 }
 
 .day-needs-update {
@@ -204,4 +205,53 @@ h1.page-title {
 
 .alert-saved {
     display:none;
+}
+
+#view-following-modal .modal-dialog {
+    width:80%;
+}
+
+#view-following-modal .modal-header {
+    text-align:center;
+    
+}
+
+#view-following-modal .modal-title {
+    font-size:24px;
+    font-weight:bold;
+}
+
+#view-graph-container {
+    text-align:center;
+}
+
+.view-saved-cigarettes-container {
+    font-size:24px;
+    margin-top:40px;
+    text-align:center;
+}
+
+.view-cigarette-facts-container {
+    margin-top:10px;
+    margin-bottom:30px;
+    font-size:24px;
+}
+
+#view-bio-container {
+    text-align:left;
+    font-size:18px;
+    border-radius: 4px;
+    background-color: #dbf3b5;
+    border: 1px solid black;
+    line-height:30px;
+    padding-left:25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.view-bio-title {
+    text-align:center;
+    font-size: 22px;
+    font-weight:bold;
+    margin-bottom: 10px;
 }
