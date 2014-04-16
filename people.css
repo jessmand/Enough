@@ -1,6 +1,6 @@
 .people-pic{
 	height: 200px;
-	width: 200px; 
+	width: 40%; 
 }
 
 .thumbnail > img {
@@ -10,18 +10,20 @@
     margin-right: 9px;
 }
 
-.thumbnail {
-	width: 450px; 
-    float: left; 
-}
 
 .thumbnail > .caption {
     padding: 4px;
 }
 
-.btn-primary{
+.btn-view{
 	background-color: #b9d68a; 
 	border-color: #b9d68a;
+    color:black;
+}
+
+.btn-view:hover {
+    background-color:#a9c67a;
+    border-color: #b9d68a;
 }
 
 #search{
@@ -43,5 +45,9 @@
 	border: 1px black; 
 }
 
-
+.thumbnail {
+    width:100%;
+    float:left;
+    height:210px;
+}
 

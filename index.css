@@ -1,0 +1,60 @@
+body {
+	/*
+	background: -webkit-radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
+	background: -o-radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
+	background: -moz-radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
+	background: radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
+	*/
+	background-image: url('./grass_blur.JPG');
+	background-size: cover;
+}
+
+.container-fluid {
+//	background-color: #b9d68a;
+	text-align: center;
+	width: 50%;
+	margin-top: 100px 
+}
+
+.header {
+	position: fixed;
+	top: 15px;
+	left: 20px;
+	font-family: 'Changa One', cursive;
+	font-size: 95px;
+	color: white;
+	line-height: 70%;
+}
+
+#italics {
+	font-style: italic;
+}
+
+.description {
+	font-size: 40px;
+	margin-bottom: 20px;
+	color: white;
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 300px;
+	font-family: 'Raleway', sans-serif;
+	//font-family: 'Shadows Into Light', cursive
+}
+
+.motivation {
+	margin-top: 20px;
+}
+
+#sign_in {
+	position: fixed;
+	right: 5px;
+	top: 5px;
+	color: white;
+	font-size: 15px;
+}
+
+#bold {
+	font-weight: 700;
+}
+
