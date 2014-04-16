@@ -58,7 +58,7 @@ textarea {
 }
 
 .user-input-section {
-	height: 300px;
+	height: 350px;
 }
 
 .left-bar {
@@ -113,7 +113,11 @@ select:focus, select:active {
     border: 1px solid #B9D68A !important;
 }
 
-goal:focus, goal:active {
+#goal:focus, #goal:active {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset !important;
     border: 1px solid #B9D68A !important;
+}
+
+.disclaimer {
+    text-align:center;
 }
