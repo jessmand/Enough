@@ -3,6 +3,10 @@ body {
   	background-repeat: repeat;
 }
 
+textarea {
+	resize: vertical;
+}
+
 .input-group {
 	padding-bottom: 10px;
 }

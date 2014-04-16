@@ -12,6 +12,10 @@ $(function() {
 		location.href="./myprogress.html";
 	});
 
+	$("#button1to0").on("click", function() {
+		location.href="./index.html";
+	});
+
 	$("#button2to1").on("click", function() {
 		location.href="./StepOne.html";
 	});
