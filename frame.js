@@ -176,6 +176,7 @@ $(function() {
             $("#update-cigarettes-btn").on('click', function() {
                 alertSaved();
                 data[dateIndex].cigarettes = parseInt($("#num-cigarettes").val());
+                dateList[dateIndex].cigarettes = parseInt($("#num-cigarettes").val());
             });
         } else {
             $("#num-cigarettes").val("");
@@ -195,7 +196,7 @@ $(function() {
                 data.push({"date":yyyy+"-"+mm+"-"+dd, "cigarettes":parseInt($("#num-cigarettes").val())});
                 dateList.push({"date":getDate(data[data.length-1]), "cigarettes":data[data.length-1].cigarettes});
                 updateMaximumDate();
-                $( "#calendar" ).datepicker('option', 'maxDate', maximumDate).datepicker('refresh');
+                $( "#calendar" ).datepicker('option', 'maxDate', maximumDate).datepicker('option', 'defaultDate', maximumDate).datepicker('refresh');
                 
                 
                 $( "#update-cigarettes-btn").unbind( "click" );
