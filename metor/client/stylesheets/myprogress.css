@@ -1,0 +1,54 @@
+
+
+#graph-container {
+    overflow-x: auto;
+}
+
+
+
+#goals-container {
+    text-align:left;
+    font-size:18px;
+    border-radius: 4px;
+    background-color: #dbf3b5;
+    border: 1px solid black;
+    line-height:30px;
+    padding-left:25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.goals-title {
+    text-align:center;
+    font-size: 22px;
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+.harder-easier-buttons {
+    text-align:left;
+    margin-top: 5px;
+    margin-bottom:20px;
+}
+
+.harder-easier-button {
+    border: 1px solid black;
+}
+
+.harder-easier-button:hover {
+    background-color: #B9D68A;
+    border: 1px solid black;
+}
+
+.saved-cigarettes-container {
+    font-size:24px;
+    margin-top:40px;
+}
+
+.cigarette-facts-container {
+    margin-top:10px;
+    margin-bottom:30px;
+    font-size:24px;
+}
+
+

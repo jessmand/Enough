@@ -1,16 +1,9 @@
 body {
-	/*
-	background: -webkit-radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
-	background: -o-radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
-	background: -moz-radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
-	background: radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
-	*/
 	background-image: url('./images/grass_blur.jpg');
 	background-size: cover;
 }
 
 .container-fluid {
-//	background-color: #b9d68a;
 	text-align: center;
 	width: 50%;
 	margin-top: 100px 

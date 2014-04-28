@@ -1,0 +1,71 @@
+    var weekGoal = 18;
+    
+    var extendLifeMilestones = ["see another smile", "share another hug", "see another sunset", "have another birthday"];
+    
+    var whichMilestone = function(saved) {
+        var milestone = null;
+        if (saved < 1) {
+            milestone = 0;
+        } else if (saved<6) {
+            milestone = 1;
+        } else if (saved<21) {
+            milestone = 2;
+        } else if (saved<51) {
+            milestone = 3;
+        }
+        if (milestone == null) {
+            return "conquer smoking";
+        } else {
+            return extendLifeMilestones[milestone];
+        }
+    }
+    
+    var cigaretteCost = .5;
+    
+    var savedMoney = function(savedCigarettes) {
+        var totalCost = savedCigarettes*cigaretteCost;
+         return ("$" + totalCost.toFixed(2));
+    }
+
+    var data = [{
+            'date': "2014-03-01",
+            'cigarettes': 20
+        }, {
+            'date': "2014-03-02",
+            'cigarettes': 20
+        }, {
+            'date': "2014-03-03",
+            'cigarettes': 19
+        }, {
+            'date': "2014-03-04",
+            'cigarettes': 18
+        }, {
+            'date': "2014-03-05",
+            'cigarettes': 18
+        }];
+
+    
+    var totalSaved = drawChart(data, "graph-container", weekGoal)
+    var tomorrowGoal = 17;
+    var todayGoal = 18;
+    var yesterdayGoal = 18;
+    var weekGoal = 18;
+    var monthGoal = 15;
+    
+    var currentGoal = $("<div class='goal'><span class='glyphicon glyphicon-unchecked'></span></div>");
+    var completedGoal = $("<div class='goal'><span class='glyphicon glyphicon-ok'></span></div>");
+    var failedGoal = $("<div class='goal'><span class='glyphicon glyphicon-remove'></span></div>");
+    todayGoalDiv = currentGoal.clone().append("<span><b>Today</b>, you should only have "+todayGoal+" cigarettes.</span>");
+    $("#goals-container").append(todayGoalDiv);
+    tomorrowGoalDiv = currentGoal.clone().append("<span><b>Tomorrow</b>, only smoke "+tomorrowGoal+" cigarettes.</span>");
+    $("#goals-container").append(tomorrowGoalDiv);
+    weekGoalDiv = currentGoal.clone().append("<span>This <b>week</b>, average "+weekGoal+" cigarettes per day.</span>");
+    $("#goals-container").append(weekGoalDiv);
+    monthGoalDiv = currentGoal.clone().append("<span>This <b>month</b>, get down to "+monthGoal+" cigarettes per day.</span>");
+    $("#goals-container").append(monthGoalDiv);
+    yesterdayGoalDiv = completedGoal.clone().append("<span><b>Yesterday</b>, you only smoked "+yesterdayGoal+" cigarettes. Good job!</span>");
+    $("#goals-container").append(yesterdayGoalDiv);
+    
+    $('.saved-cigarettes').append(totalSaved);
+    $(".extended-life").append(whichMilestone(totalSaved));
+    $(".saved-money").append(savedMoney(totalSaved));
