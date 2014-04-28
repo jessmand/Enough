@@ -5,7 +5,7 @@ body {
 	background: -moz-radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
 	background: radial-gradient(rgb(137, 227, 255), rgb(131, 146, 255));
 	*/
-	background-image: url('./grass_blur.JPG');
+	background-image: url('./images/grass_blur.jpg');
 	background-size: cover;
 }
 
