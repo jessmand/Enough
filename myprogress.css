@@ -1,3 +1,8 @@
+.graph-and-title-container {
+    background-color: #f7f7f5;
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
 
 
 #graph-container {
@@ -10,12 +15,13 @@
     text-align:left;
     font-size:18px;
     border-radius: 4px;
-    background-color: #dbf3b5;
+    background-color: #4c66a4;
     border: 1px solid black;
     line-height:30px;
     padding-left:25px;
     padding-top: 10px;
     padding-bottom: 10px;
+    color: #f7f7f5;
 }
 
 .goals-title {
@@ -36,8 +42,8 @@
 }
 
 .harder-easier-button:hover {
-    background-color: #B9D68A;
     border: 1px solid black;
+    font-weight: bold;
 }
 
 .saved-cigarettes-container {
@@ -50,5 +56,6 @@
     margin-bottom:30px;
     font-size:24px;
 }
+
 
 

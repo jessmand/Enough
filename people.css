@@ -16,14 +16,15 @@
 }
 
 .btn-view{
-	background-color: #b9d68a; 
-	border-color: #b9d68a;
+	background-color: #4c66a4; 
+	border-color: black;
     color:black;
 }
 
 .btn-view:hover {
-    background-color:#a9c67a;
-    border-color: #b9d68a;
+    background-color: rgba(76,102,164,0.7);
+    color: white;
+    font-weight: bold;
 }
 
 #search{

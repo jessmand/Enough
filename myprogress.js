@@ -65,15 +65,15 @@ $(function () {
     var currentGoal = $("<div class='goal'><span class='glyphicon glyphicon-unchecked'></span></div>");
     var completedGoal = $("<div class='goal'><span class='glyphicon glyphicon-ok'></span></div>");
     var failedGoal = $("<div class='goal'><span class='glyphicon glyphicon-remove'></span></div>");
-    todayGoalDiv = currentGoal.clone().append("<span><b>Today</b>, you should only have "+todayGoal+" cigarettes.</span>");
+    todayGoalDiv = currentGoal.clone().append("<span><b> Today</b>, you should only have "+todayGoal+" cigarettes.</span>");
     $("#goals-container").append(todayGoalDiv);
-    tomorrowGoalDiv = currentGoal.clone().append("<span><b>Tomorrow</b>, only smoke "+tomorrowGoal+" cigarettes.</span>");
+    tomorrowGoalDiv = currentGoal.clone().append("<span><b> Tomorrow</b>, only smoke "+tomorrowGoal+" cigarettes.</span>");
     $("#goals-container").append(tomorrowGoalDiv);
-    weekGoalDiv = currentGoal.clone().append("<span>This <b>week</b>, average "+weekGoal+" cigarettes per day.</span>");
+    weekGoalDiv = currentGoal.clone().append("<span> This <b>week</b>, average "+weekGoal+" cigarettes per day.</span>");
     $("#goals-container").append(weekGoalDiv);
-    monthGoalDiv = currentGoal.clone().append("<span>This <b>month</b>, get down to "+monthGoal+" cigarettes per day.</span>");
+    monthGoalDiv = currentGoal.clone().append("<span> This <b>month</b>, get down to "+monthGoal+" cigarettes per day.</span>");
     $("#goals-container").append(monthGoalDiv);
-    yesterdayGoalDiv = completedGoal.clone().append("<span><b>Yesterday</b>, you only smoked "+yesterdayGoal+" cigarettes. Good job!</span>");
+    yesterdayGoalDiv = completedGoal.clone().append("<span><b> Yesterday</b>, you only smoked "+yesterdayGoal+" cigarettes. Good job!</span>");
     $("#goals-container").append(yesterdayGoalDiv);
     
     $('.saved-cigarettes').append(totalSaved);
