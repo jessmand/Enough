@@ -23,6 +23,22 @@ $(function() {
 	$("#button3to2").on("click", function() {
 		location.href="./StepTwo.html";
 	});
+
+	$(".smoking-info-box.info-box-off").on("click", function() {
+		location.href="./StepTwo.html";
+	});
+
+	$(".goals-info-box.info-box-off").on("click", function() {
+		location.href="./StepThree.html";
+	});
+
+	$(".personal-info-box.info-box-on").on("click", function() {
+		location.href="./StepOne.html";
+	});
+
+	$(".smoking-info-box.info-box-on").on("click", function() {
+		location.href="./StepTwo.html";
+	});
     
     
     
