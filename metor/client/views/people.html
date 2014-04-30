@@ -1,0 +1,63 @@
+<template name="people">                
+<div id="content">
+	    <div class="container-fluid">
+		<!-- People search bar -->
+		<nav class="navbar navbar-default" role="navigation">
+		    <div class="container-fluid">
+			<div class="navbar-header">
+			    <div class="navbar-brand">Filter</div>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    <form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+				    <input type="text" class="form-control" placeholder="Keywords">
+				    <input type="text" class="form-control" placeholder="Age">
+				    <input type="text" class="form-control" placeholder="Years Smoked">
+				    <select class="form-control">
+					<option>Any Gender</option>
+					<option>Male</option>
+					<option>Female</option>
+				    </select>
+				</div>
+			    </form>
+			    <form class="navbar-form navbar-right">
+				<button id="search" type="button" class="btn btn-default">Search</button>
+			    </form>
+			</div>
+			<!-- /.navbar-collapse -->
+		    </div>
+		    <!-- /.container-fluid -->
+		</nav>
+		<div id="pre-search">
+		    <div class="row">
+			{{#each people}}
+				{{> person}}
+			{{/each}}
+			
+		    </div>
+		</div>
+	    </div>
+    </div>
+</template>
+
+
+<template name="person">
+	<div class="col-sm-6 col-md-6">
+	    <div class="thumbnail">
+		    <img src={{url}} alt="..." class="people-pic">
+		<div class="caption">
+			<h3>{{name}}</h3>
+			<p>{{bio}}</p>
+		    <p>
+			<a href="#" class="btn btn-view" role="button">View Profile</a>
+			{{#if isFollowing }}
+				<a href="#" id="following" class="btn btn-follow btn-default" role="button">Following</a>
+			{{else}}
+				<a href="#" id="follow" class="btn btn-follow btn-default" role="button">Follow</a>
+			{{/if}}
+
+		    </p>
+		</div>
+	    </div>
+	</div>
+</template>

@@ -46,13 +46,14 @@
 	    <div class="following-list">
 		<span class="following-list-label"><img src="./images/following line right.png" class="following-line"><b>Following</b><img src="./images/following line left.png" class="following-line"></span>
 		<ul class="following-nav nav nav-pills nav-stacked">
-		    <li><a>Dorothy</a></li>
-		    <li><a>Toto</a></li>
+			{{#each following}}
+				<li><a>{{name}}</a></li>
+			{{/each}}
 		</ul>
 	    </div>
 	    
 	</div>
-	{{> myprogress}}
+	{{> people}}
 	
     </div>
 </div>

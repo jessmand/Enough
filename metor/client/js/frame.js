@@ -1,4 +1,10 @@
-$(function() {
+Template.frame.helpers({
+	following: function() {
+		return Following.find();
+	}
+});
+
+Meteor.startup( function() {
     
     var sidebarHeight = function() {
         $('.row-top').height($('.top-banner').height());
