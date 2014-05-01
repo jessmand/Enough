@@ -1,6 +1,7 @@
 .graph-and-title-container {
     background-color: #f7f7f5;
     border-radius: 5px;
+    padding-top: 10px;
     padding-bottom: 10px;
 }
 
@@ -9,19 +10,25 @@
     overflow-x: auto;
 }
 
-
+.goals-column {
+    padding-left: 0px;
+}
 
 #goals-container {
+    margin-top: 20px;
     text-align:left;
     font-size:18px;
     border-radius: 4px;
-    background-color: #4c66a4;
-    border: 1px solid black;
+    /*background-color: #4c66a4;*/
+    /*color: #f7f7f5;*/
+    background-color: #f7f7f5;
+    color: #4c66a4;
+    /*border: 1px solid black;*/
     line-height:30px;
     padding-left:25px;
     padding-top: 10px;
     padding-bottom: 10px;
-    color: #f7f7f5;
+    width: auto;
 }
 
 .goals-title {
@@ -32,18 +39,30 @@
 }
 
 .harder-easier-buttons {
-    text-align:left;
+    display: inline-block;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 5px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
+    padding-left: 0px;
 }
 
 .harder-easier-button {
-    border: 1px solid black;
+    transition: background-color 0.3s ease;
+    border-color: #f7f7f5;
+    background-color: #f7f7f5;
 }
 
 .harder-easier-button:hover {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     font-weight: bold;
+    background-color: rgba(76,102,164,0.7);
+}
+
+.content-row {
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .saved-cigarettes-container {
@@ -57,5 +76,62 @@
     font-size:24px;
 }
 
+#saved-money-badge {
+    display: table;
+    background-image: url("green_badge.png");
+    height: 130px;
+    width: 130px;
+    text-align: center;
+    margin-top: 60px;
+    margin-left: 30px;
+    float: left;
+}
 
+#saved-money-details {
+    display: table-cell;
+    vertical-align: middle;
+    /*padding-bottom: 10px;*/
+}
+
+#saved-title {
+    margin-top: 0px;
+}
+
+#saved-money-cigarettes-container {
+    margin-top: 20px;
+    float: right;
+    text-align:left;
+    font-size:18px;
+    border-radius: 4px;
+    /*background-color: #4c66a4;*/
+    /*color: #f7f7f5;*/
+    background-color: #f7f7f5;
+    color: #4c66a4;
+    /*border: 1px solid black;*/
+    line-height:30px;
+    padding-left:25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.cigarettes-resisted {
+    text-align: center;
+    border-right: 1px solid;
+    border-color: #4c66a4;
+}
+
+.money-saved {
+    text-align: center;
+    border-left: 1px solid;
+    border-color: #4c66a4;
+}
+
+.saved-money {
+    color: #FFB300;
+}
+
+.saved-cigarettes {
+    color: #FFB300;
+}
 

@@ -41,11 +41,16 @@
 	padding: 20px 0px;
 }
 .post:hover {
-	background-color: #B9D68A;
+	background-color: #4c66a4;
+	color: white;
 }
 
 .number {
-	color: #526e26;
+	color: #4c66a4;
+}
+
+.post:hover .number {
+	color: #FFB300;
 }
 
 .align-left {

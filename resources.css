@@ -6,7 +6,7 @@
 
 .tile {
 	padding: 15px;
-	height: 115px;
+	height: 140px;
 	width: 60%;
 	margin: 25px 0px 0px 15px;
 	background-color: white;
@@ -15,7 +15,8 @@
 }
 
 .tile:hover {
-	background-color: #d0dcaa;
+	background-color: #4c66a4;
+	color: white;
 }
 
 .sub_title {
