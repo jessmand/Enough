@@ -1,6 +1,4 @@
-$(function() {
-
-	$("#button1to2").on("click", function() {
+$("#button1to2").on("click", function() {
 		location.href="./StepTwo.html";
 	});
 
@@ -23,6 +21,10 @@ $(function() {
 	$("#button3to2").on("click", function() {
 		location.href="./StepTwo.html";
 	});
+
+	$("#num-cigarettes-spinner").spinner({min:0});
+	$( "#num-cigarettes-spinner" ).spinner( "value", 0 );
+
     
     
     
@@ -35,4 +37,3 @@ $(function() {
 
         $('.goal-character-count').html(text_remaining + ' characters remaining');
     });
-});

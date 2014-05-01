@@ -1,5 +1,5 @@
 body {
-	background-image: url('./images/grass_blur.jpg');
+	background-image: url('/images/grass_blur.jpg');
 	background-size: cover;
 }
 
