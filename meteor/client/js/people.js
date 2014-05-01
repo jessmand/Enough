@@ -1,36 +1,33 @@
-Template.people.helpers({
-    people: function() {
-	    return People.find();
-    }
-});
+if (Meteor.isClient) {
+	Meteor.startup( function() {
+		Session.set("people", "all");
 
-Template.person.isFollowing = function() {
-	return Following.findOne({name: this.name}) != undefined;
-}
-
-
-Meteor.startup( function() {
-	$("#post-search").hide();
-
-	$("#search").click(function() {
-		$("#pre-search").hide();
-		$("#post-search").show();
-	}); 
-
-	$("#close-modal").click(function(){
-		$("#joeK-info").modal('hide');
+		$("#search").click(function() {
+			Session.set("people", "JoeK");
+		}); 
 	})
 
+	Template.people.helpers({
+	    people: function() {
+		if ( Session.get("people")=== "all")
+			return People.find();
+		return [People.findOne({name: "Joseph Kraznicovinchi"})];
+	    }
+	});
 
-});
+	Template.person.isFollowing = function() {
+		return Following.findOne({name: this.name}) != undefined;
+	}
 
-
-Template.people.events = {
-	'click #follow': function(){
-		if (Following.findOne({name: this.name}) == undefined)
-			Following.insert({name: this.name});
-	},
-	'click #following': function() {
-		Following.remove({name: this.name});
+	Template.people.events = {
+		'click #follow': function(){
+			if (Following.findOne({name: this.name}) == undefined)
+				Following.insert({name: this.name});
+		},
+		'click #following': function() {
+			var id = Following.findOne({name: this.name})._id;
+			Following.remove(id);
+		}
 	}
 }
+

@@ -1,0 +1,178 @@
+//directions for compilation: 
+//copy and paste into http://sassmeister.com/
+//copy and paste result into css file
+
+$maincolor: #B9D68A;
+$sidebarcolor: #E0E0C0;
+$textinsidecolor: #FFFFFF;
+
+.top-banner {
+    
+    text-align: center;
+    background-color:$maincolor;
+    position: fixed;
+    border-bottom: 1px solid darken($maincolor,20%);
+    width: 100%;
+}
+
+.top-banner-bubble {
+    color: $textinsidecolor;
+    text-shadow:
+    -1px -1px 0 darken($maincolor,40%),
+    1px -1px 0 darken($maincolor,40%),
+    -1px 1px 0 darken($maincolor,40%),
+    1px 1px 0 darken($maincolor,40%);
+}
+
+
+
+.title {
+    font-family: 'Changa One', cursive;
+    font-size:36px;
+    text-align:left;
+    
+}
+
+.sidebar {
+    background-color:$sidebarcolor;
+    margin-top:10px;
+    padding-left: 0px;
+    padding-right:0px;
+    margin-left:10px;
+    overflow:auto;
+    text-align:center;
+    width:250px;
+    float:left;
+    position:fixed;
+}
+
+.reason {
+    font-size:30px;
+    text-align:right;
+    line-height:51px;
+}
+
+
+.main-nav > li {
+    margin-top:5px;
+    margin-bottom:5px;
+    
+}
+
+.main-nav > li > a {
+    color: $textinsidecolor;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow:
+    -1px -1px 0 darken($maincolor,40%),
+    1px -1px 0 darken($maincolor,40%),
+    -1px 1px 0 darken($maincolor,40%),
+    1px 1px 0 darken($maincolor,40%);
+    background-color: $maincolor;
+    border-top: 1px solid darken($maincolor,20%);
+    border-bottom: 1px solid darken($maincolor,20%);
+    padding-top: 5px;
+    padding-bottom:5px;
+}
+
+.main-nav > li > a:hover {
+    color: $textinsidecolor;
+    background-color: lighten($maincolor,5%);
+}
+
+.profile-picture {
+    height:40px;
+    float:right;
+    margin-right:10px;
+    margin-left:5px;
+}
+
+.profile-name {
+    text-align:left;
+    float:right;
+}
+
+a.sign-out {
+    color: black;
+}
+
+a.sign-out:hover {
+    color: black;
+}
+
+.following-list {
+    margin-top:10px;
+    padding-top:2px;
+    
+}
+
+.following-list-label {
+    margin-bottom:7px;
+    font-weight:bold;
+}
+
+.following-nav > li > a {
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.following-nav > li > a:hover {
+    color: black;
+    background-color: mix($sidebarcolor, $maincolor, 60%);
+    
+}
+
+#content {
+    float:left;
+    margin-top: 10px;
+    background-image: url("greyzz.png");
+    background-repeat:repeat;
+    text-align:center;
+}
+
+body {
+    background-color: lighten(desaturate($sidebarcolor, 20%), 15%);
+}
+
+.following-line {
+    width:80px;
+}
+
+.top-nav > li {
+    float:right;
+}
+
+.top-nav > li > a {
+    color:$textinsidecolor;
+    text-shadow:
+    -1px -1px 0 darken($maincolor,40%),
+    1px -1px 0 darken($maincolor,40%),
+    -1px 1px 0 darken($maincolor,40%),
+    1px 1px 0 darken($maincolor,40%);
+    cursor: pointer;
+    font-weight:bold;
+    font-size:16px;
+    
+}
+
+.top-nav > li > a:hover {
+    color:$textinsidecolor;
+    background-color: mix($sidebarcolor, $maincolor, 60%);
+}
+
+.top-links {
+    padding-right:40px;
+    margin-top:5px;
+}
+
+#frame-progress {
+    margin-left:10px;
+    margin-right:10px;
+    margin-top: 10px;
+    text-align:center;
+}
+
+h1.page-title {
+    font-family: 'Changa One', cursive;
+}

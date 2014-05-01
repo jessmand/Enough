@@ -1,0 +1,58 @@
+<template name= "forums">                
+<div id="content">
+	    <div class="container-fluid">
+		<div class = "row">
+		    <div id="header" class = "title col-md-12"> Forums </div>
+		</div>
+		<div class = "row">
+		    <div class="col-md-12 forum-nav-buttons">
+			<div class="btn-group btn-group-justified">
+			    <div class="btn-group">
+				<button type="button" class="active btn btn-default forum-nav">Reasons</button>
+			    </div>
+			    <div class="btn-group">
+				<button type="button" class="btn btn-default forum-nav">Goals</button>
+			    </div>
+			    <div class="btn-group">
+				<button type="button" class="btn btn-default forum-nav">Stories</button>
+			    </div>
+			    <div class="btn-group">
+				<button type="button" class="btn btn-default forum-nav">Advice</button>
+			    </div>
+			    <div class="btn-group">
+				<button type="button" class="btn btn-default forum-nav">Other</button>
+			    </div>
+			</div>
+		    </div>
+		</div>
+		<div id="new_search" class = "row">
+		    <div class = "col-md-6 align-left">
+			<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> New Post</button>
+		    </div>
+		    <div class = "col-md-6">
+			<div class="input-group search-field">
+			    <input type="text" class="form-control">
+			    <span class="input-group-btn">
+				<button id="btn-search" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+			    </span>
+			</div>
+		    </div>
+		</div>
+		<div id="forum_container" class="container-fluid">
+			{{#each forum_posts}}
+				{{> forum_post}}
+			{{/each}}
+		</div>
+	    </div>
+	</div>     
+</template>
+
+
+<template name="forum_post">
+	<div class="post row">
+		<div class="col-md-6">{{ post }}</div>
+		<div class="col-md-2"><span class="number">{{ days_ago }}</span> days ago</div>
+		<div class="col-md-2"><span class="number">{{ comments }}</span> comments</div>
+		<div class="col-md-2"><span class="number">{{ likes }}</span> good post<a class="good-post-button"><span class="glyphicon glyphicon-thumbs-up"></span></a></div>
+	</div>
+</template>
