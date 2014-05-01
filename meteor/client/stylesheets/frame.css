@@ -109,7 +109,7 @@ a.sign-out:hover {
   z-index: 1; 
 }
 
-body {
+.background {
   background-color: #f7f7f5;
 }
 
