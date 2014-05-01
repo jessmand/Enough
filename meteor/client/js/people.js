@@ -4,9 +4,10 @@ Template.people.helpers({
     }
 });
 
-Template.people.isFollowing = function() {
-	return Following.findOne({name: this.name});
+Template.person.isFollowing = function() {
+	return Following.findOne({name: this.name}) != undefined;
 }
+
 
 Meteor.startup( function() {
 	$("#post-search").hide();
@@ -22,11 +23,14 @@ Meteor.startup( function() {
 
 
 });
-	Template.people.events = {
-		'click #follow': function(){
+
+
+Template.people.events = {
+	'click #follow': function(){
+		if (Following.findOne({name: this.name}) == undefined)
 			Following.insert({name: this.name});
-		},
-		'click #following': function() {
-			Following.remove({name: this.name});
-		}
+	},
+	'click #following': function() {
+		Following.remove({name: this.name});
 	}
+}
