@@ -1,10 +1,6 @@
 if (Meteor.isClient) {
 	Meteor.startup( function() {
 		Session.set("people", "all");
-
-		$("#search").click(function() {
-			Session.set("people", "JoeK");
-		}); 
 	})
 
 	Template.people.helpers({
@@ -27,6 +23,12 @@ if (Meteor.isClient) {
 		'click #following': function() {
 			var id = Following.findOne({name: this.name})._id;
 			Following.remove(id);
+		},
+		'click #search': function() {
+			Session.set("people", "JoeK");
+		},
+		'click #people-view-all': function() {
+			Session.set("people", "all");
 		}
 	}
 }

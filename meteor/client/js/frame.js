@@ -1,3 +1,7 @@
+Template.frame.created = function() {
+	$("head").append("<link href='http://fonts.googleapis.com/css?family=Changa+One' rel='stylesheet' type='text/css'>");
+};
+
 Template.frame.helpers({
 	following: function() {
 		return Following.find();

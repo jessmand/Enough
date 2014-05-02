@@ -101,7 +101,7 @@ a.sign-out:hover {
 }
 
 #content {
-  float: left;
+  //float: left;
   margin-top: 10px;
   background-image: url("/images/greyzz.png");
   background-repeat: repeat;

@@ -29,3 +29,7 @@
 .col-md-6:first-child .tile{
 	float: right;
 }
+
+.resources-description {
+	color: black;
+}
