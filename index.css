@@ -60,7 +60,17 @@ a {
 }
 
 #bold {
+	transition: border-radius 1s ease, color .5s ease;
 	font-weight: 700;
+	background-color: #B7B7B7;
+	margin-left: 70px;
+	margin-right: 70px;
+	border-radius: 5px;
+}
+
+#bold:hover {
+	border-radius: 50px;
+	color: black;
 }
 
 .stop-smoking-signup-link:hover {
