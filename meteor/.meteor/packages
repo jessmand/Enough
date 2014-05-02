@@ -11,5 +11,6 @@ bootstrap-3
 jquery
 jquery-ui
 iron-router
-accounts-ui-bootstrap-3
 accounts-password
+accounts-ui
+accounts-ui-bootstrap-3

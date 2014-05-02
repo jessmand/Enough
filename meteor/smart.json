@@ -2,6 +2,7 @@
   "packages": {
     "iron-router": {},
     "bootstrap-3": {},
-    "jquery-ui": {}
+    "jquery-ui": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }
