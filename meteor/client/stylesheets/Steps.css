@@ -1,5 +1,5 @@
 body {
-	background-image: url("./images/greyzz.png");
+	background-image: url("/images/greyzz.png");
   	background-repeat: repeat;
 }
 
@@ -15,7 +15,7 @@ textarea {
 	height: 100px;
 }
 
-.btn {
+.steps-btn {
 	color: white;
   	font-weight: bold;
   	font-size: 18px;
@@ -26,7 +26,7 @@ textarea {
   	padding-bottom: 5px;
 }
 
-.btn:hover {
+.steps-btn:hover {
 	background-color: #c4dd9d;
     border: 1px solid #8bb941;
 }

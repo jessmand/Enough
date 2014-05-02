@@ -1,6 +1,6 @@
 Router.map(function() {
 	this.route('myprogress', {path: "/", 
-		layoutTemplate: 'frame'
+		layoutTemplate: 'enough'
 	});
 
 	this.route('people', {
@@ -9,7 +9,10 @@ Router.map(function() {
 
 	this.route('forums', {
 		layoutTemplate: 'frame'
-	})
+	});
 
+	this.route('resources', {
+		layoutTemplate: 'frame'
+	});
 })
 
