@@ -8,7 +8,7 @@ Template.frame.helpers({
 	}
 });
 
-Meteor.startup( function() {
+Template.frame.rendered = function() {
     
     var sidebarHeight = function() {
         $('.row-top').height($('.top-banner').height());
@@ -340,6 +340,7 @@ Meteor.startup( function() {
             $('#view-following-modal #view-bio-container .bio-text').html(bio);
         
     });
+    
 
 
-});
+};
