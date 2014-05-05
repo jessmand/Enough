@@ -1,4 +1,4 @@
-$(function() {
+var pageJavascript = function() {
     
     $("#post-search").hide();
 
@@ -17,4 +17,4 @@ $(function() {
         $("#people-following").append("<li><a>Joe K.</a></li>");
     })
     
-});
+};

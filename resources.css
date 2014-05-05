@@ -17,6 +17,7 @@
 .tile:hover {
 	background-color: #4c66a4;
 	color: white;
+    cursor:pointer;
 }
 
 .sub_title {

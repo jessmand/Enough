@@ -4,15 +4,6 @@ if (localStorage["signed-in"] != "true") {
 
 $(function() {
     
-    
-    
-    $(".reason-span").append(localStorage["reason"]);
-    $("#your-name").append(localStorage["name"]);
-    $(".sign-out").on("click", function() {
-        localStoarge["signed-in"] = "false";
-        location.href="./index.html";
-    });
-    
     var sidebarHeight = function() {
         $('.row-top').height($('.top-banner').height());
         var sidebarHeight = $(window).height()-$('.top-banner').height() - 10;
@@ -22,13 +13,41 @@ $(function() {
         $('#content').css('margin-left', contentLeft);
         $('#content').width(contentWidth);
     }
+    $(".row-top").load("header.html", function() {
+        $(".sidebar").load("sidebar.html", function() {
+            sidebarHeight();
+            $(".reason-span").append(localStorage["reason"]);
+            $("#your-name").append(localStorage["name"]);
+            $(".sign-out").on("click", function() {
+                localStorage["signed-in"] = "false";
+                location.href="./index.html";
+            });
+            
+            $('#update-progress-btn').on('click', function() {
+                $('#update-progress-modal').modal('toggle');
+                $("#calendar").datepicker('option', 'defaultDate', maximumDate)
+                updateProgressForDate(maximumDate);
+            });
+            
+            $('.following-nav a, .btn-view').on('click', function() {
+                //$('#view-following-modal modal-dialog').width
+                $('#view-following-modal').modal('toggle');
+                $('#view-following-modal .modal-title').html(name);
+                
+                
+                
+                
+            });
+            
+            pageJavascript();
+        });
+    });
+    
+    
+    
     
     //$('.sidebar').css("top", $('.top-banner').height());
-    sidebarHeight();
     
-    function alertTimeout(wait){
-
-    }
     
     var numberFadingOut = 0;
     
@@ -44,13 +63,7 @@ $(function() {
     }
     
     $(window).resize(sidebarHeight);
-    var path = "file:///C:/Users/Jessica/Documents/6.813/Enough";
-    $(".main-nav").append("<li><a href='./myprogress.html'>My Progress</a></li>")
-        .append("<li><a href='./people.html'>People</a></li>")
-        .append("<li><a href='./forums.html'>Forums</a></li>")
-        .append("<li><a href='./resources.html'>Resources</a></li>");
-    
-    
+
     var calendar = "<div id='calendar' class='col-md-6'></div>";
     
     var updateDiv = "<div id='update-div' class='col-md-6 form-horizontal'>"
@@ -226,11 +239,7 @@ $(function() {
     
     
     
-    $('#update-progress-btn').on('click', function() {
-        $('#update-progress-modal').modal('toggle');
-        $("#calendar").datepicker('option', 'defaultDate', maximumDate)
-        updateProgressForDate(maximumDate);
-    });
+
     
     
     
@@ -333,15 +342,7 @@ $(function() {
          return ("$" + totalCost.toFixed(2));
     }
     
-    $('.following-nav a, .btn-view').on('click', function() {
-        //$('#view-following-modal modal-dialog').width
-        $('#view-following-modal').modal('toggle');
-        $('#view-following-modal .modal-title').html(name);
-        
-        
-        
-        
-    });
+
     
     $('#view-following-modal').on('shown.bs.modal', function (e) {
             $("#view-graph-container").empty();

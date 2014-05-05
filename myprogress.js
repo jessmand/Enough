@@ -1,4 +1,4 @@
-$(function () {
+var pageJavascript = function() {
 
 
     var weekGoal = 18;
@@ -79,4 +79,4 @@ $(function () {
     $('.saved-cigarettes').append(totalSaved);
     $(".extended-life").append(whichMilestone(totalSaved));
     $(".saved-money").append(savedMoney(totalSaved));
-});
+};
