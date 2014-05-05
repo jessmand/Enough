@@ -86,11 +86,11 @@
 }
 
 a.sign-out {
-  color: black;
+  color: white;
 }
 
 a.sign-out:hover {
-  color: black;
+  color: white;
 }
 
 .following-list {

@@ -1,14 +1,18 @@
 $(function() {
 
 	$("#button1to2").on("click", function() {
+        localStorage["name"] = $('#firstName').val()+' '+$('#lastName').val();
 		location.href="./StepTwo.html";
 	});
 
 	$("#button2to3").on("click", function() {
+        localStorage["numCigarettes"] = $("#num-cigarettes-spinner").val();
 		location.href="./StepThree.html";
 	});
 
 	$("#buttonFinish").on("click", function() {
+        localStorage["reason"] = $("#reason").val();
+        localStorage["signed-in"] = "true";
 		location.href="./myprogress.html";
 	});
 

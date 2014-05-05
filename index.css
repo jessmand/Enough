@@ -7,11 +7,9 @@ body {
 	*/
 	/*background-image: url('./images/grass_blur.jpg');*/
 	background-color: #4c66a4;
-	background-size: cover;
 }
 
 .container-fluid {
-//	background-color: #b9d68a;
 	text-align: center;
 	width: 50%;
 	margin-top: 100px 

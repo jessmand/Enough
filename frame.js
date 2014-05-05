@@ -1,4 +1,17 @@
+if (localStorage["signed-in"] != "true") {
+        window.location.replace("./index.html");
+}
+
 $(function() {
+    
+    
+    
+    $(".reason-span").append(localStorage["reason"]);
+    $("#your-name").append(localStorage["name"]);
+    $(".sign-out").on("click", function() {
+        localStoarge["signed-in"] = "false";
+        location.href="./index.html";
+    });
     
     var sidebarHeight = function() {
         $('.row-top').height($('.top-banner').height());

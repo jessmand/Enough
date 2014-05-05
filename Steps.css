@@ -16,6 +16,18 @@ textarea {
 }
 
 .btn {
+    transition: background-color 0.3s ease;
+    border-color: rgb(76,102,164);
+    background-color: #f7f7f5;
+    color:black;
+}
+
+.btn:hover {
+    background-color: rgba(76,102,164,0.7);
+}
+
+/*
+.btn {
 	color: white;
   	font-weight: bold;
   	font-size: 18px;
@@ -31,6 +43,7 @@ textarea {
 	opacity: 0.8;
     border: 1px solid black;
 }
+*/
 
 #button1to0, #button2to1, #button3to2 {
 	float: left;
@@ -84,7 +97,7 @@ textarea {
     height:34px;
     color:#555555;
     padding:0px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid rgb(76,102,164);
 }
 
 #num-cigarettes-spinner {
@@ -99,7 +112,7 @@ textarea {
 
 textarea:focus, textarea:active, input:focus, input:active, select:focus, select:active {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset !important;
-    border: 1px solid #B9D68A !important;
+    border: 1px solid rgb(76,102,164) !important;
 }
 
 .disclaimer {

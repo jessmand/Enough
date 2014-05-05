@@ -50,13 +50,12 @@
 
 .harder-easier-button {
     transition: background-color 0.3s ease;
-    border-color: #f7f7f5;
+    border-color: rgb(76,102,164);
     background-color: #f7f7f5;
 }
 
 .harder-easier-button:hover {
-    /*border: 1px solid black;*/
-    font-weight: bold;
+    color:white;
     background-color: rgba(76,102,164,0.7);
 }
 
