@@ -50,6 +50,11 @@ $(function() {
         localStorage["people"] = JSON.stringify(people);
         
         
+        localStorage["tomorrowGoal"] = Math.round(parseInt(localStorage["numCigarettes"])/2)-1;
+        localStorage["todayGoal"] = Math.round(parseInt(localStorage["numCigarettes"])/2);
+        localStorage["yesterdayGoal"] = Math.round(parseInt(localStorage["numCigarettes"])/2)+1;
+        localStorage["monthGoal"] = Math.round(parseInt(localStorage["numCigarettes"])/2)-2;
+        localStorage["weekGoal"] = Math.round(parseInt(localStorage["numCigarettes"])/2);
         
 		location.href="./myprogress.html";
 	});

@@ -107,5 +107,10 @@ var pageJavascript = function() {
     $("#view-all").on("click", function() {
         populatePeople(people);
     }); 
-  
+
+    $('#view-following-modal').on('shown.bs.modal', function (e) {
+        $(".btn-view-follow").on("click", function() {
+            populatePeople(JSON.parse(localStorage["people"]));
+        });
+    });
 };

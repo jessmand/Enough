@@ -117,7 +117,6 @@ a.sign-out:hover {
 #content {
   float: left;
   margin-top: 10px;
-  background-repeat: repeat;
   text-align: center;
   z-index: 1;
   margin-left: 20px;
@@ -300,4 +299,107 @@ h1.page-title {
     background: url('images/ui-bg_glass_100_fdf5ce_1x400.png') repeat-x scroll 50% 50% #FDF5CE;
     font-weight: bold;
     color: #C77405;
+}
+
+.goal-title, #view-bio {
+    margin-left:0px;
+    margin-right:0px;
+}
+
+#view-graph-container {
+    border-radius: 4px;
+    background-color: #f7f7f5;
+}
+
+
+.goals-column {
+    padding-left: 0px;
+}
+
+#goals-container {
+    margin-top: 20px;
+    text-align:left;
+    font-size:18px;
+    border-radius: 4px;
+    /*background-color: #4c66a4;*/
+    /*color: #f7f7f5;*/
+    background-color: #f7f7f5;
+    color: #4c66a4;
+    /*border: 1px solid black;*/
+    line-height:30px;
+    padding-left:25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: auto;
+}
+
+.goals-title {
+    text-align:center;
+    font-size: 22px;
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+.content-row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.saved-cigarettes-container {
+    font-size:24px;
+    margin-top:40px;
+}
+
+.cigarette-facts-container {
+    margin-top:10px;
+    margin-bottom:30px;
+    font-size:24px;
+}
+
+#saved-money-details {
+    display: table-cell;
+    vertical-align: middle;
+    /*padding-bottom: 10px;*/
+}
+
+#saved-title {
+    margin-top: 0px;
+}
+
+#saved-money-cigarettes-container {
+    margin-top: 20px;
+    float: right;
+    text-align:left;
+    font-size:18px;
+    border-radius: 4px;
+    /*background-color: #4c66a4;*/
+    /*color: #f7f7f5;*/
+    background-color: #f7f7f5;
+    color: #4c66a4;
+    /*border: 1px solid black;*/
+    line-height:30px;
+    padding-left:25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.cigarettes-resisted {
+    text-align: center;
+    border-right: 1px solid;
+    border-color: #4c66a4;
+}
+
+.money-saved {
+    text-align: center;
+    border-left: 1px solid;
+    border-color: #4c66a4;
+}
+
+.saved-money {
+    color: #FFB300;
+}
+
+.saved-cigarettes {
+    color: #FFB300;
 }
