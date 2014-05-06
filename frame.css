@@ -180,7 +180,6 @@ h1.page-title {
     border: 3px solid;
     border-color: #FFB300;
     margin-bottom:15px;
-    margin-top:15px;
     /*box-shadow: -7px -7px 7px #FF9900 inset;*/
     font-weight: bold;
     width:200px;
@@ -424,11 +423,26 @@ h1.page-title {
 
 .progress-description {
     position: absolute;
-    top:45px;
+    top:115px;
     left:25px;
     text-align:center;
     width:200px;
     font-weight:bold;
     color: rgba(0,0,0,.7);
     font-size:28px;
+}
+
+.main-nav {
+    margin-top: 15px;
+}
+
+.btn.following {
+    transition: background-color 0.3s ease;
+    color:white;
+    background-color: rgba(76,102,164,0.7);
+}
+
+.btn.following:hover {
+    background-color: rgba(76,102,164,0.3);
+    color:black;
 }

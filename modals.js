@@ -1,8 +1,8 @@
-var modalJavascript = function() {
-    $('#update-progress-btn').on('click', function() {
+var modalJavascript = function () {
+    $('#update-progress-btn').on('click', function () {
         $('#update-progress-modal').modal('toggle');
         $("#calendar").datepicker('option', 'defaultDate', maximumDate)
-        if (dateList[dateList.length-1].date.getDate() == today.getDate() && dateList[dateList.length-1].date.getMonth() == today.getMonth() && dateList[dateList.length-1].date.getYear() == today.getYear()) {
+        if (dateList[dateList.length - 1].date.getDate() == today.getDate() && dateList[dateList.length - 1].date.getMonth() == today.getMonth() && dateList[dateList.length - 1].date.getYear() == today.getYear()) {
             alertAtTop("You're all up to date! You can change your progress if you want.");
         } else if (maximumDate.getDate() == today.getDate() && maximumDate.getMonth() == today.getMonth() && maximumDate.getYear() == today.getYear()) {
             alertAtTop("Great job keeping up with updating your progress! Enter how many cigarettes you smoked today.");
@@ -11,11 +11,11 @@ var modalJavascript = function() {
         } else {
             alertAtTop("It looks like you haven't updated your progress in a while. Please update yuor progress for the last couple of days before you enter your progress for today!");
         }
-        
+
         updateProgressForDate(maximumDate);
-        
+
     });
-    
+
     var numberFadingOut = 0;
 
     var alertSaved = function () {
@@ -29,7 +29,7 @@ var modalJavascript = function() {
         }, 2000);
     }
 
-    
+
 
     var data = JSON.parse(localStorage["data"]);
 
@@ -65,7 +65,7 @@ var modalJavascript = function() {
         maximumDate = new Date(Math.min.apply(null, [maximumDate, today]));
         $('#update-progress-btn span').remove();
         if (!(dateList[dateList.length - 1].date.getDate() == today.getDate() && dateList[dateList.length - 1].date.getMonth() == today.getMonth() && dateList[dateList.length - 1].date.getYear() == today.getYear())) {
-            
+
             var needsUpdateAlert = $("<span class='glyphicon glyphicon-plus-sign'></span>").css('color', "#FFB300").css("margin-left", "5px");
             $('#update-progress-btn').append(needsUpdateAlert);
         }
@@ -103,9 +103,9 @@ var modalJavascript = function() {
 
     var yesterday = new Date();
     yesterday.setDate(today.getDate() - 1);
-    
-    var alertAtTop = function(message) {
-        $("#beginningTip").append($("<div class='alert alert-begin'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"+message+"</div>"));
+
+    var alertAtTop = function (message) {
+        $("#beginningTip").append($("<div class='alert alert-begin'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" + message + "</div>"));
     }
 
     var updateProgressForDate = function (dateToUpdate) {
@@ -180,57 +180,72 @@ var modalJavascript = function() {
 
 
     }
-    
+
     $('#update-progress-modal').on('hide.bs.modal', function () {
         var pathname = window.location.pathname;
         var pagename = pathname.split("/")
-        pagename = pagename[pagename.length-1].split(".")[0];
+        pagename = pagename[pagename.length - 1].split(".")[0];
         if (pagename == "myprogress") {
             location.reload();
         }
     })
-    
-    
-    var generateData = function(numCigarettes) {
-        var randomNumDays = Math.floor(Math.random() * 50 +20);
+
+
+
+
+    var generateData = function (numCigarettes) {
+        var randomNumDays = Math.floor(Math.random() * 50 + 20);
         var today = new Date();
-        
+
         var data = [];
-        for (var i=randomNumDays; i>1; i--) {
+        for (var i = randomNumDays; i > 1; i--) {
             var prevDay = new Date();
-            prevDay.setDate(today.getDate()-i);
+            prevDay.setDate(today.getDate() - i);
             var dd = prevDay.getDate();
-            var mm = prevDay.getMonth()+1; //January is 0!
+            var mm = prevDay.getMonth() + 1; //January is 0!
             var yyyy = prevDay.getFullYear();
-            
-            if(dd<10) {
-                dd='0'+dd
-            } 
-            
-            if(mm<10) {
-                mm='0'+mm
+
+            if (dd < 10) {
+                dd = '0' + dd
             }
-            
+
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
             var randomVariance = Math.floor(Math.random() * 3 - 1);
-            var prevDayCigarettes = Math.round(numCigarettes/2*(i/(randomNumDays-1)) + numCigarettes/2) + randomVariance;
-            
-            data.push({'date':yyyy+"-"+mm+"-"+dd, 'cigarettes':prevDayCigarettes});
+            var prevDayCigarettes = Math.round(numCigarettes / 2 * (i / (randomNumDays - 1)) + numCigarettes / 2) + randomVariance;
+
+            data.push({
+                'date': yyyy + "-" + mm + "-" + dd,
+                'cigarettes': prevDayCigarettes
+            });
         }
         return data
     }
-    
-    
+
+
     var bio;
     var viewGoal;
     var viewData;
     var randomStartCigarettes;
     var name;
-    
+
     var people = JSON.parse(localStorage["people"]);
-    
-    var followClickEvent = function(button) {
+
+    var followClickEvent = function (button) {
+        var pathname = window.location.pathname;
+        var pagename = pathname.split("/")
+        pagename = pagename[pagename.length - 1].split(".")[0];
+        if (pagename == "people" && button.hasClass("btn-view-follow")) {
+            var thisName = $(this).parent().find("span").text();
+            var followButton = $(".thumbnail h3:contains('" + thisName + "')").parent().find(".btn-follow");
+            followButton.unbind("click").addClass("following").text("Following").on("click", function () {
+                unfollowClickEvent($(this))
+            });      
+        };
         var person_name = name;
-        for (var k=0; k<people.length; k++) {
+        for (var k = 0; k < people.length; k++) {
             if (people[k].name == person_name) {
                 people[k].following = "true";
             }
@@ -240,14 +255,24 @@ var modalJavascript = function() {
         button.text("Following");
         constructFollowingList();
         button.unbind("click");
-        button.on("click", function() {
+        button.on("click", function () {
             unfollowClickEvent($(this));
         });
     };
-    
-    var unfollowClickEvent = function(button) {
+
+    var unfollowClickEvent = function (button) {
+        var pathname = window.location.pathname;
+        var pagename = pathname.split("/")
+        pagename = pagename[pagename.length - 1].split(".")[0];
+        if (pagename == "people" && button.hasClass("btn-view-follow")) {
+            var thisName = $(this).parent().find("span").text();
+            var followButton = $(".thumbnail h3:contains('" + thisName + "')").parent().find(".btn-follow");
+            followButton.unbind("click").removeClass("following").text("Follow").on("click", function () {
+                followClickEvent($(this))
+            });      
+        };
         var person_name = name;
-        for (var k=0; k<people.length; k++) {
+        for (var k = 0; k < people.length; k++) {
             if (people[k].name == person_name) {
                 people[k].following = "false";
             }
@@ -257,83 +282,124 @@ var modalJavascript = function() {
         button.text("Follow");
         constructFollowingList();
         button.unbind("click");
-        button.on("click", function() {
+        button.on("click", function () {
             followClickEvent($(this));
         });
     }
-    
-    var constructFollowingList = function() {
+
+    var constructFollowingList = function () {
         $(".following-nav").empty();
-        for (var i=0; i<people.length; i++) {
+        people = JSON.parse(localStorage["people"]);
+        for (var i = 0; i < people.length; i++) {
             if (people[i].following == "true") {
-                var link = $("<a>"+people[i].name+"</a>");
-                link.on('click', function() {
-                    //$('#view-following-modal modal-dialog').width
-                    $('#view-following-modal').modal('toggle');
-                    $('#view-following-modal .modal-title').html($(this).text());
-            
-                });
+                var link = $("<a>" + people[i].name + "</a>");
                 var listElement = $("<li></li>").append(link);
                 $(".following-nav").append(listElement);
             }
         }
+        bindViewFollowNav()
     }
-    
-    $('.following-nav a, .btn-view').on('click', function() {
-        name = $(this).text();
-        if (name == "View Profile") {
-            name = $(this).parent().parent().find("h3").text();
-        }
-        //$('#view-following-modal modal-dialog').width
-        
-        for (var i=0; i<people.length; i++) {
-            if (people[i].name == name) {
-                bio = people[i].bio;
-                following = people[i].following;
+
+
+
+    var bindViewFollowNav = function () {
+
+        $('.following-nav a').on('click', function () {
+            name = $(this).text();
+
+
+            for (var i = 0; i < people.length; i++) {
+                if (people[i].name == name) {
+                    bio = people[i].bio;
+                    following = people[i].following;
+                }
             }
-        }
-        randomStartCigarettes = Math.floor(Math.random() * 10 +10);
-        viewData = generateData(randomStartCigarettes);
-        viewGoal = Math.round(randomStartCigarettes/2)
-        $('#view-following-modal').modal('toggle');
-        
-        $('#view-following-modal .modal-title').html(name).append($('<button href="#" class="btn btn-view-follow"></button>'));;
-        
-        if (following == "true") {
-                $(".btn-view-follow").addClass("following").text("Following").on("click", function() {
+            randomStartCigarettes = Math.floor(Math.random() * 10 + 10);
+            viewData = generateData(randomStartCigarettes);
+            viewGoal = Math.round(randomStartCigarettes / 2)
+            $('#view-following-modal').modal('toggle');
+
+            $('#view-following-modal .modal-title').empty().append($("<span>" + name + "</span>")).append($('<button href="#" class="btn btn-view-follow"></button>'));;
+
+            if (following == "true") {
+                $(".btn-view-follow").addClass("following").text("Following").on("click", function () {
                     unfollowClickEvent($(this))
                 });
             } else {
-                $(".btn-view-follow").text("Follow").on("click", function() {
+                $(".btn-view-follow").removeClass("following").text("Follow").on("click", function () {
                     followClickEvent($(this))
                 });
             }
-        
-        
-        
-    });
-    
-    
-    var cigaretteCost = .5;
-    
-    var savedMoney = function(savedCigarettes) {
-        var totalCost = savedCigarettes*cigaretteCost;
-         return ("$" + totalCost.toFixed(2));
-    }
-    
 
-    
+
+
+        });
+    }
+
+    var bindViewPeople = function () {
+
+        $('.btn-view').on('click', function () {
+            name = $(this).parent().parent().find("h3").text();
+            //$('#view-following-modal modal-dialog').width
+
+            for (var i = 0; i < people.length; i++) {
+                if (people[i].name == name) {
+                    bio = people[i].bio;
+                    following = people[i].following;
+                }
+            }
+            randomStartCigarettes = Math.floor(Math.random() * 10 + 10);
+            viewData = generateData(randomStartCigarettes);
+            viewGoal = Math.round(randomStartCigarettes / 2)
+            $('#view-following-modal').modal('toggle');
+
+            $('#view-following-modal .modal-title').empty().append($("<span>" + name + "</span>")).append($('<button href="#" class="btn btn-view-follow"></button>'));;
+
+            if (following == "true") {
+
+
+
+                $(".btn-view-follow").addClass("following").text("Following").on("click", function () {
+
+                    unfollowClickEvent($(this))
+                });
+            } else {
+                $(".btn-view-follow").removeClass("following").text("Follow").on("click", function () {
+                   
+                    followClickEvent($(this))
+                });
+            }
+
+
+
+        });
+    }
+    constructFollowingList();
+
+
+    var cigaretteCost = .5;
+
+    var savedMoney = function (savedCigarettes) {
+        var totalCost = savedCigarettes * cigaretteCost;
+        return ("$" + totalCost.toFixed(2));
+    }
+
+
+
     $('#view-following-modal').on('shown.bs.modal', function (e) {
-            $("#view-graph-container").empty();
-            var totalSaved = drawChart(viewData, "view-graph-container", viewGoal, randomStartCigarettes);
-            
-            
-            $('.view-saved-cigarettes').html(totalSaved);
-            $(".view-saved-money").html(savedMoney(totalSaved));
-            $('#view-following-modal #view-bio').html(bio);
-        
+        $("#view-graph-container").empty();
+        var totalSaved = drawChart(viewData, "view-graph-container", viewGoal, randomStartCigarettes);
+
+
+        $('.view-saved-cigarettes').html(totalSaved);
+        $(".view-saved-money").html(savedMoney(totalSaved));
+        $('#view-following-modal #view-bio').html(bio);
+
     });
-    
-    
+
+    var modalFunctions = {};
+    modalFunctions.constructFollowingList = constructFollowingList;
+    modalFunctions.bindViewPeople = bindViewPeople;
+    return modalFunctions;
 
 }

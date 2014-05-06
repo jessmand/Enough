@@ -14,16 +14,6 @@ $(function() {
         $('#content').width(contentWidth);
     }
     
-    var constructFollowingList = function() {
-        $(".following-nav").empty();
-        var people = JSON.parse(localStorage["people"]);
-        for (var i=0; i<people.length; i++) {people
-            if (people[i].following == "true") {
-                $(".following-nav").append($("<li><a>"+people[i].name+"</a></li>"));
-            }
-        }
-    }
-    
     $(".row-top").load("header.html", function() {
         $(".sidebar").load("sidebar.html", function() {
             $("#modals").load("modals.html", function() {
@@ -46,11 +36,10 @@ $(function() {
                     localStorage["signed-in"] = "false";
                     location.href="./index.html";
                 });
+                var modalFunctions = modalJavascript();
                 
-                constructFollowingList();
+                pageJavascript(modalFunctions);
                 
-                pageJavascript();
-                modalJavascript();
             
             });
         });

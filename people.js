@@ -1,26 +1,21 @@
-var pageJavascript = function() {
+var pageJavascript = function(modalFunctions) {
     
     var people = JSON.parse(localStorage["people"]);
     
      $(".people-btn-side").addClass("main-nav-on-page");
-    
+    /*
     var constructFollowingList = function() {
         $(".following-nav").empty();
         for (var i=0; i<people.length; i++) {
             if (people[i].following == "true") {
                 var link = $("<a>"+people[i].name+"</a>");
-                link.on('click', function() {
-                    //$('#view-following-modal modal-dialog').width
-                    $('#view-following-modal').modal('toggle');
-                    $('#view-following-modal .modal-title').html($(this).text());
-            
-                });
                 var listElement = $("<li></li>").append(link);
                 $(".following-nav").append(listElement);
             }
         }
+        modalJavascript.bindViewFollowNav();
     }
-    
+    */
     
     
     var followClickEvent = function(button) {
@@ -33,7 +28,7 @@ var pageJavascript = function() {
         localStorage["people"] = JSON.stringify(people);
         button.addClass("following");
         button.text("Following");
-        constructFollowingList();
+        modalFunctions.constructFollowingList();
         button.unbind("click");
         button.on("click", function() {
             unfollowClickEvent($(this));
@@ -50,7 +45,7 @@ var pageJavascript = function() {
         localStorage["people"] = JSON.stringify(people);
         button.removeClass("following");
         button.text("Follow");
-        constructFollowingList();
+        modalFunctions.constructFollowingList();
         button.unbind("click");
         button.on("click", function() {
             followClickEvent($(this));
@@ -59,6 +54,7 @@ var pageJavascript = function() {
     
     var populatePeople = function(possiblePeople) {
         $("#people").empty();
+        console.log("populating")
         var peopleTiles = [];
     
         for (var i=0; i<possiblePeople.length; i++) {
@@ -81,7 +77,7 @@ var pageJavascript = function() {
                     unfollowClickEvent($(this))
                 });
             } else {
-                personTileObject.find(".btn-follow").text("Follow").on("click", function() {
+                personTileObject.find(".btn-follow").removeClass("following").text("Follow").on("click", function() {
                     followClickEvent($(this))
                 });
             }
@@ -96,9 +92,12 @@ var pageJavascript = function() {
             }
             $("#people").append(newRow);
         }
+        modalFunctions.bindViewPeople()
+        
     }
     
     populatePeople(people);
+    
 
     $("#search").on("click", function() {
         populatePeople([people[people.length-1]]);
@@ -112,9 +111,4 @@ var pageJavascript = function() {
     
     $("#view-all").hide();
 
-    $('#view-following-modal').on('shown.bs.modal', function (e) {
-        $(".btn-view-follow").on("click", function() {
-            populatePeople(JSON.parse(localStorage["people"]));
-        });
-    });
 };
