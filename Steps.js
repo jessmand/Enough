@@ -98,4 +98,9 @@ $(function() {
 
         $('.goal-character-count').html(text_remaining + ' characters remaining');
     });
+
+    if (window.location.pathname == "./StepTwo.html") {
+	$("#num-cigarettes-spinner").spinner({min:0});
+	$( "#num-cigarettes-spinner" ).spinner( "value", 1 )
+    }
 });

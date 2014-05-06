@@ -68,16 +68,17 @@
 .main-nav > li > a:hover {
   background-color: rgba(76,102,164,0.7);
   color: white;
-  font-weight: bold;
-  border-radius: 20px 0px 0px 20px;
+  border-radius: 20px 4px 4px 20px;
 }
 
-.main-nav-on-page {
+.main-nav > li > .main-nav-on-page {
   border-left: 3px solid !important;
   border-top: 3px solid !important;
   border-bottom: 3px solid !important;
+  border-right: 0px solid !important;
   border-color: black !important;
-  border-radius: 20px 0px 0px 20px !important;
+  border-radius: 20px 4px 4px 20px !important;
+  background-color: rgba(76,102,164,0.7);
 }
 
 .profile-picture-nav {
