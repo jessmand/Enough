@@ -108,4 +108,9 @@ $(function() {
     });
     
     resizeSidebars();
+
+    if (window.location.pathname == "./StepTwo.html") {
+	$("#num-cigarettes-spinner").spinner({min:0});
+	$( "#num-cigarettes-spinner" ).spinner( "value", 1 )
+    }
 });
