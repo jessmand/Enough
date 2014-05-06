@@ -184,10 +184,6 @@ h1.page-title {
     background-color:#FFB300;
 }
 
-.update-progress-body {
-    height:310px;
-}
-
 .date-selected {
     text-align:center;
     font-weight: bold;
@@ -263,4 +259,46 @@ h1.page-title {
     font-size: 22px;
     font-weight:bold;
     margin-bottom: 10px;
+}
+
+.close {
+    float:right;
+}
+
+.alert-begin {
+    color:white;
+    background-color: rgba(76,102,164,0.7);
+}
+
+#update-cigarettes-btn {
+    transition: background-color 0.3s ease;
+    border-color: rgb(76,102,164);
+    background-color: #f7f7f5;
+}
+
+#update-cigarettes-btn:hover {
+    color:white;
+    background-color: rgba(76,102,164,0.7);
+}
+
+.ui-state-active.ui-state-default.ui-state-highlight, .ui-widget-content .ui-state-active.ui-state-default.ui-state-highlight {
+  /*any CSS styles you want overriden i.e.*/
+  border: 1px solid #FBD850;
+    background: url('images/ui-bg_glass_65_ffffff_1x400.png') repeat-x scroll 50% 50% #FFF;
+    font-weight: bold;
+    color: #EB8F00;
+}
+
+.ui-state-default.ui-state-highlight, .ui-widget-content .ui-state-default.ui-state-highlight {
+  /*any CSS styles you want overriden i.e.*/
+  border: 1px solid #CCC;
+    background: url('images/ui-bg_glass_100_f6f6f6_1x400.png') repeat-x scroll 50% 50% #F6F6F6;
+    font-weight: bold;
+    color: #1C94C4;
+}
+.ui-state-hover.ui-state-highlight, .ui-widget-content .ui-state-hover.ui-state-highlight {
+    border: 1px solid #FBCB09;
+    background: url('images/ui-bg_glass_100_fdf5ce_1x400.png') repeat-x scroll 50% 50% #FDF5CE;
+    font-weight: bold;
+    color: #C77405;
 }

@@ -83,27 +83,23 @@ path.progress-line {
  }
  
 path.starting-line {
-    stroke: black;
-    stroke-width: 4;
+    stroke: rgba(0,0,0,.3);
+    stroke-width: 8;
  fill: none;
-    stroke-dasharray: 8px;
 }
 
 path.starting-line:hover {
-    stroke-width:8;
-    stroke-dasharray: 8px;
+    stroke:rgba(0,0,0,.7);
 }
 
 path.weekly-goal-line {
-    stroke: #FFB300;
-    stroke-width: 4;
+    stroke: rgba(255,179,0,.3);
+    stroke-width: 8;
  fill: none;
-    stroke-dasharray: 8px;
 }
 
 path.weekly-goal-line:hover {
-    stroke-width:8;
-    stroke-dasharray: 8px;
+    stroke: rgba(255,179,0,.7);
 }
 
 svg {

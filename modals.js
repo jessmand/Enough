@@ -2,7 +2,18 @@ var modalJavascript = function() {
     $('#update-progress-btn').on('click', function() {
         $('#update-progress-modal').modal('toggle');
         $("#calendar").datepicker('option', 'defaultDate', maximumDate)
+        if (dateList[dateList.length-1].date.getDate() == today.getDate() && dateList[dateList.length-1].date.getMonth() == today.getMonth() && dateList[dateList.length-1].date.getYear() == today.getYear()) {
+            alertAtTop("You're all up to date! You can change your progress if you want.");
+        } else if (maximumDate.getDate() == today.getDate() && maximumDate.getMonth() == today.getMonth() && maximumDate.getYear() == today.getYear()) {
+            alertAtTop("Great job keeping up with updating your progress! Enter how many cigarettes you smoked today.");
+        } else if (maximumDate.getDate() == yesterday.getDate() && maximumDate.getMonth() == yesterday.getMonth() && maximumDate.getYear() == yesterday.getYear()) {
+            alertAtTop("It looks like you forgot to update your progress yesterday! Please enter how many cigarettes you smoked yesterday before you enter today's number.");
+        } else {
+            alertAtTop("It looks like you haven't updated your progress in a while. Please update yuor progress for the last couple of days before you enter your progress for today!");
+        }
+        
         updateProgressForDate(maximumDate);
+        
     });
     
     var numberFadingOut = 0;
@@ -46,14 +57,15 @@ var modalJavascript = function() {
     today.setSeconds(0);
     today.setMilliseconds(0);
 
-    var signupDate = new Date(2014, 2, 1);
+    var signupDate = new Date(dateList[0].date.getTime());
     var maximumDate;
     var updateMaximumDate = function () {
         maximumDate = new Date(dateList[dateList.length - 1].date.getTime());
         maximumDate.setDate(maximumDate.getDate() + 1);
         maximumDate = new Date(Math.min.apply(null, [maximumDate, today]));
+        $('#update-progress-btn span').remove();
         if (!(dateList[dateList.length - 1].date.getDate() == today.getDate() && dateList[dateList.length - 1].date.getMonth() == today.getMonth() && dateList[dateList.length - 1].date.getYear() == today.getYear())) {
-            $('#update-progress-btn span').remove();
+            
             var needsUpdateAlert = $("<span class='glyphicon glyphicon-plus-sign'></span>").css('color', "#FFB300").css("margin-left", "5px");
             $('#update-progress-btn').append(needsUpdateAlert);
         }
@@ -66,7 +78,7 @@ var modalJavascript = function() {
         defaultDate: maximumDate,
         beforeShowDay: function (d) {
             var present = false;
-            if (d < new Date(2014, 2, 1) || d > today) {
+            if (d < signupDate || d > today) {
                 return [true, ""];
             }
             for (var j = 0; j < dateList.length; j++) {
@@ -91,6 +103,10 @@ var modalJavascript = function() {
 
     var yesterday = new Date();
     yesterday.setDate(today.getDate() - 1);
+    
+    var alertAtTop = function(message) {
+        $("#beginningTip").append($("<div class='alert alert-begin'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>"+message+"</div>"));
+    }
 
     var updateProgressForDate = function (dateToUpdate) {
         var endingStr = "th";
@@ -122,6 +138,7 @@ var modalJavascript = function() {
             $("#update-cigarettes-btn").on('click', function () {
                 alertSaved();
                 data[dateIndex].cigarettes = parseInt($("#num-cigarettes").val());
+                localStorage["data"] = JSON.stringify(data);
                 dateList[dateIndex].cigarettes = parseInt($("#num-cigarettes").val());
             });
         } else {
@@ -143,6 +160,7 @@ var modalJavascript = function() {
                     "date": yyyy + "-" + mm + "-" + dd,
                     "cigarettes": parseInt($("#num-cigarettes").val())
                 });
+                localStorage["data"] = JSON.stringify(data);
                 dateList.push({
                     "date": getDate(data[data.length - 1]),
                     "cigarettes": data[data.length - 1].cigarettes
@@ -155,6 +173,7 @@ var modalJavascript = function() {
                 $("#update-cigarettes-btn").on('click', function () {
                     alertSaved();
                     data[data.length - 1].cigarettes = parseInt($("#num-cigarettes").val());
+                    localStorage["data"] = JSON.stringify(data);
                 });
             });
         }
@@ -167,6 +186,7 @@ var modalJavascript = function() {
     
     
     var name = "Joe K.";
+    
     $('.following-nav a, .btn-view').on('click', function() {
         //$('#view-following-modal modal-dialog').width
         $('#view-following-modal').modal('toggle');

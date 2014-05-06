@@ -1,7 +1,4 @@
 var pageJavascript = function() {
-
-
-    var weekGoal = 18;
     
     var extendLifeMilestones = ["see another smile", "share another hug", "see another sunset", "have another birthday"];
     
@@ -33,7 +30,7 @@ var pageJavascript = function() {
     var data = JSON.parse(localStorage["data"]);
 
     
-    var totalSaved = drawChart(data, "graph-container", weekGoal)
+    
     
     
     
@@ -44,8 +41,10 @@ var pageJavascript = function() {
     var tomorrowGoal = 17;
     var todayGoal = 18;
     var yesterdayGoal = 18;
-    var weekGoal = 18;
     var monthGoal = 15;
+    var weekGoal = Math.round(parseInt(localStorage["numCigarettes"])/2)
+    
+    var totalSaved = drawChart(data, "graph-container", weekGoal)
     
     var currentGoal = $("<div class='goal'><span class='glyphicon glyphicon-unchecked'></span></div>");
     var completedGoal = $("<div class='goal'><span class='glyphicon glyphicon-ok'></span></div>");
