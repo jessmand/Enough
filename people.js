@@ -2,7 +2,7 @@ var pageJavascript = function() {
     
     var people = JSON.parse(localStorage["people"]);
     
-    
+     $(".people-btn-side").addClass("main-nav-on-page");
     
     var constructFollowingList = function() {
         $(".following-nav").empty();

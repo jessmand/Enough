@@ -1,4 +1,6 @@
 var pageJavascript = function() {
+
+    $(".my-progress-btn-side").addClass("main-nav-on-page");
     
     var extendLifeMilestones = ["see another smile", "share another hug", "see another sunset", "have another birthday"];
     
