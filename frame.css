@@ -176,8 +176,9 @@ h1.page-title {
 }
 
 #update-progress-btn {
+    transition: background-color 0.5s ease, border-width 0.5s ease, border-radius 0.5s ease;
     background-color: #E8E8E8;
-    border: 2px solid;
+    border: 3px solid;
     border-color: #FFB300;
     margin-bottom:15px;
     /*box-shadow: -7px -7px 7px #FF9900 inset;*/
@@ -190,7 +191,9 @@ h1.page-title {
 }
 
 #update-progress-btn:hover {
-    /*background-color: #FFC310;*/
+    background-color: #f7f7f5;
+    border-width: 5px;
+    border-radius: 25px;
 }
 
 .day-needs-update {
