@@ -101,7 +101,7 @@ textarea {
 }
 
 #num-cigarettes-spinner {
-    height:34px;
+    height: 34px;
     padding: 6px 12px;
     background-color:#FFFFFF;
     margin:0px;
@@ -189,5 +189,18 @@ textarea:focus, textarea:active, input:focus, input:active, select:focus, select
 	color: #4c66a4;
 }
 
+.units-label {
+	color: black;
+	float: left;
+	padding-left: 0px;
+	padding-top: 7px;
+}
 
+.ui-spinner {
+	width: 80px;
+}
 
+#reason {
+	font-size: 20px;
+	font-weight: bold;
+}

@@ -147,6 +147,7 @@ body {
 .top-links {
   padding-right: 40px;
   margin-top: 5px;
+  float: right;
 }
 
 #frame-progress {
