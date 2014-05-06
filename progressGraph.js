@@ -7,7 +7,7 @@ function getDate(d) {
     return dt;
 }
 
-var drawChart = function (data, containerId, weekGoal) {
+var drawChart = function (data, containerId, weekGoal, startCigarettes) {
     
 
 
@@ -34,7 +34,7 @@ var drawChart = function (data, containerId, weekGoal) {
     totalSaved = function () {
         var total = 0;
         for (var i = 0; i < data.length; i++) {
-            total += data[0].cigarettes - data[i].cigarettes;
+            total += startCigarettes - data[i].cigarettes;
         }
         return total;
     }
@@ -54,12 +54,12 @@ var drawChart = function (data, containerId, weekGoal) {
     var savedTip = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-15, 0])
-        .html("Cigarettes saved: " + totalSaved());
+        .html("Cigarettes resisted: " + totalSaved());
     
     var startingTip = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-15, 0])
-        .html("Starting cigarettes: " + data[0].cigarettes);
+        .html("Starting cigarettes: " + startCigarettes);
     
     var weeklyGoalTip = d3.tip()
         .attr('class', 'd3-tip')
@@ -126,7 +126,7 @@ var drawChart = function (data, containerId, weekGoal) {
         // return the X coordinate where we want to plot this datapoint
         return x(d); //x(i);
     })
-        .y(y(data[0].cigarettes));
+        .y(y(startCigarettes));
     
     
     // create a line function that can convert data[] into x and y points
@@ -182,7 +182,7 @@ var drawChart = function (data, containerId, weekGoal) {
         .y0(function (d) {
         return y(d.cigarettes);
     })
-        .y1(y(maxCigarettes));
+        .y1(y(startCigarettes));
 
     
 
@@ -200,12 +200,10 @@ var drawChart = function (data, containerId, weekGoal) {
     var xAxisPane = d3.svg.axis().scale(xPane).orient("bottom").ticks(d3.time[dayNames[minDate.getDay()]], 1).tickFormat(d3.time.format('%m/%d')).tickSize(-heightPane).tickSubdivide(true);;
     var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(d3.time.days, 1).tickFormat(d3.time.format('%m/%d')).tickSize(-height).tickSubdivide(true);
     var yAxisLeft = d3.svg.axis().scale(y).ticks(maxCigarettes - minCigarettes + 4).orient("left"); //.tickFormat(formalLabel);
-    
-    var beginWeek = new Date();
-    beginWeek.setDate(maxDate.getDate() -7);
+
     
     var maxBrushDate = new Date();
-    maxBrushDate.setDate(maxDate.getDate() -2);
+    maxBrushDate.setDate(maxDate.getDate() -1);
     
     var beginWeek = new Date();
     beginWeek.setDate(maxBrushDate.getDate() -7);
@@ -260,6 +258,24 @@ var drawChart = function (data, containerId, weekGoal) {
         .on('mouseout', savedTip.hide)
         .attr("transform", "translate(5,0)");
     
+    
+    
+    chartBody.append("path")
+        .attr("d", startingLine(d3.time.days(minDate,maxDate,1)))
+        .attr("class", "starting-line")
+        .on('mouseover', function() {startingTip.show(d3.mouse(this)[0]+$("#"+containerId).offset().left+margin.left-25)})
+        .on('mouseout', startingTip.hide)
+        .attr("transform", "translate(5,0)");
+    
+    chartBody.append("path")
+        .attr("d", weeklyGoalLine(d3.time.days(minDate,maxDate,1)))
+        .attr("class", "weekly-goal-line")
+        .on('mouseover', function() { weeklyGoalTip.show(d3.mouse(this)[0]+$("#"+containerId).offset().left+margin.left-25)})
+        .on('mouseout', weeklyGoalTip.hide)
+        .attr("transform", "translate(5,0)");
+    
+    
+    
     chartBody.append("path").attr("d", line(data)).attr("class", "progress-line").attr("transform", "translate(5,0)");
     
     var circle = chartBody
@@ -278,24 +294,6 @@ var drawChart = function (data, containerId, weekGoal) {
         d3.select(this).transition().duration(200).attr('r', 5);
         tip.hide(e)
     }).attr("transform", "translate(5,0)");
-    
-    chartBody.append("path")
-        .attr("d", startingLine(d3.time.days(minDate,maxDate,1)))
-        .attr("class", "starting-line")
-        .on('mouseover', function() {startingTip.show(d3.mouse(this)[0]+$("#"+containerId).offset().left+margin.left-25)})
-        .on('mouseout', startingTip.hide)
-        .attr("transform", "translate(5,0)");
-    
-    chartBody.append("path")
-        .attr("d", weeklyGoalLine(d3.time.days(minDate,maxDate,1)))
-        .attr("class", "weekly-goal-line")
-        .on('mouseover', function() { weeklyGoalTip.show(d3.mouse(this)[0]+$("#"+containerId).offset().left+margin.left-25)})
-        .on('mouseout', weeklyGoalTip.hide)
-        .attr("transform", "translate(5,0)");
-    
-    
-    
-    
     
 
     focus.append("svg:text")

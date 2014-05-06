@@ -103,5 +103,10 @@ var pageJavascript = function() {
     $("#search").on("click", function() {
         populatePeople([people[people.length-1]]);
     }); 
+    $('#view-following-modal').on('shown.bs.modal', function (e) {
+        $(".btn-view-follow").on("click", function() {
+            populatePeople(JSON.parse(localStorage["people"]));
+        });
+    });
   
 };

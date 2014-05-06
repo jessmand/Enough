@@ -101,7 +101,3 @@ path.weekly-goal-line {
 path.weekly-goal-line:hover {
     stroke: rgba(255,179,0,.7);
 }
-
-svg {
-    border:1px solid black;
-}
