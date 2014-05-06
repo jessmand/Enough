@@ -2,7 +2,14 @@ $(function() {
     
     var whenSignedIn = function() {
         $("#login-signup").empty().append($('<span><a href="#" id="log-out-button" class="btn">Logout</a></span>'));
-        $(".description").empty().append($('<div class="statistic">Welcome back '+localStorage["name"].split(" ")[0]+'.</div>'
+
+	var name = ""
+	if (localStorage["name"] == undefined) {
+		name = "";
+	} else {
+		name = localStorage["name"].split(" ")[0];
+	}
+        $(".description").empty().append($('<div class="statistic">Welcome back '+ name +'.</div>'
 		+'<div class="motivation">Take the next step.'
 			+'<div id="bold" class="stop-smoking-signup-link">Keep going. </div></div>'));
         $(".stop-smoking-signup-link").on("click", function() {
