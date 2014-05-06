@@ -64,7 +64,7 @@ var pageJavascript = function() {
         for (var i=0; i<possiblePeople.length; i++) {
             var personTile = '<div class="col-sm-6 col-md-6">'
                                         +'<div class="thumbnail">'
-                                            +'<img src="images/'+possiblePeople[i].name.replace(" ", "")+'.jpg" alt="..." class="people-pic">'
+                                            +'<img src="./images/'+possiblePeople[i].name.replace(" ", "")+'.jpg" alt="..." class="people-pic">'
                                             +'<div class="caption">'
                                                 +'<h3>'+possiblePeople[i].name+'</h3>'
                                                 +'<p>'+possiblePeople[i].bio.substr(0,100)+'...</p>'
@@ -103,5 +103,14 @@ var pageJavascript = function() {
     $("#search").on("click", function() {
         populatePeople([people[people.length-1]]);
     }); 
-  
+
+    $("#view-all").on("click", function() {
+        populatePeople(people);
+    }); 
+
+    $('#view-following-modal').on('shown.bs.modal', function (e) {
+        $(".btn-view-follow").on("click", function() {
+            populatePeople(JSON.parse(localStorage["people"]));
+        });
+    });
 };

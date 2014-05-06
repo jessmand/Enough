@@ -181,84 +181,138 @@ var modalJavascript = function() {
 
     }
     
-    
-    
-    
-    
-    var name = "Joe K.";
-    
-    $('.following-nav a, .btn-view').on('click', function() {
-        //$('#view-following-modal modal-dialog').width
-        $('#view-following-modal').modal('toggle');
-        $('#view-following-modal .modal-title').html(name);
-
-    });
-    
-    var viewData = [{
-            'date': "2014-03-01",
-            'cigarettes': 7
-        }, {
-            'date': "2014-03-02",
-            'cigarettes': 7
-        }, {
-            'date': "2014-03-03",
-            'cigarettes': 8
-        }, {
-            'date': "2014-03-04",
-            'cigarettes': 7
-        }, {
-            'date': "2014-03-05",
-            'cigarettes': 7
-        }, {
-            'date': "2014-03-06",
-            'cigarettes': 6
-        }, {
-            'date': "2014-03-07",
-            'cigarettes': 6
-        }, {
-            'date': "2014-03-08",
-            'cigarettes': 5
-        }, {
-            'date': "2014-03-09",
-            'cigarettes': 6
-        }, {
-            'date': "2014-03-10",
-            'cigarettes': 5
-        }, {
-            'date': "2014-03-11",
-            'cigarettes': 4
-        }, {
-            'date': "2014-03-12",
-            'cigarettes': 4
-        }, {
-            'date': "2014-03-13",
-            'cigarettes': 3
-        }, {
-            'date': "2014-03-14",
-            'cigarettes': 4
-        }];
-    var bio = 'I am a 35 year old with a loving wife and 3 kids. I want to be around as long as possible to help my wife handle our kids, and to be there for them while they grow up. If that means quitting a bad habit then thats what I\'m going to do. The love I recieve from my family on a daily basis is worth the feeling of a lifetime of cigarettes. I enjoy biking and rafting, and can\'t wait to do those things without having to worry about my health.';
-    var viewGoal = 3;
-    
-    var extendLifeMilestones = ["see another smile", "share another hug", "see another sunset", "have another birthday"];
-    
-    var whichMilestone = function(saved) {
-        var milestone = null;
-        if (saved < 1) {
-            milestone = 0;
-        } else if (saved<6) {
-            milestone = 1;
-        } else if (saved<21) {
-            milestone = 2;
-        } else if (saved<51) {
-            milestone = 3;
+    $('#update-progress-modal').on('hide.bs.modal', function () {
+        var pathname = window.location.pathname;
+        var pagename = pathname.split("/")
+        pagename = pagename[pagename.length-1].split(".")[0];
+        if (pagename == "myprogress") {
+            location.reload();
         }
-        if (milestone == null) {
-            return "conquer smoking";
-        } else {
-            return extendLifeMilestones[milestone];
+    })
+    
+    
+    var generateData = function(numCigarettes) {
+        var randomNumDays = Math.floor(Math.random() * 50 +20);
+        var today = new Date();
+        
+        var data = [];
+        for (var i=randomNumDays; i>1; i--) {
+            var prevDay = new Date();
+            prevDay.setDate(today.getDate()-i);
+            var dd = prevDay.getDate();
+            var mm = prevDay.getMonth()+1; //January is 0!
+            var yyyy = prevDay.getFullYear();
+            
+            if(dd<10) {
+                dd='0'+dd
+            } 
+            
+            if(mm<10) {
+                mm='0'+mm
+            }
+            
+            var randomVariance = Math.floor(Math.random() * 3 - 1);
+            var prevDayCigarettes = Math.round(numCigarettes/2*(i/(randomNumDays-1)) + numCigarettes/2) + randomVariance;
+            
+            data.push({'date':yyyy+"-"+mm+"-"+dd, 'cigarettes':prevDayCigarettes});
+        }
+        return data
+    }
+    
+    
+    var bio;
+    var viewGoal;
+    var viewData;
+    var randomStartCigarettes;
+    var name;
+    
+    var people = JSON.parse(localStorage["people"]);
+    
+    var followClickEvent = function(button) {
+        var person_name = name;
+        for (var k=0; k<people.length; k++) {
+            if (people[k].name == person_name) {
+                people[k].following = "true";
+            }
+        }
+        localStorage["people"] = JSON.stringify(people);
+        button.addClass("following");
+        button.text("Following");
+        constructFollowingList();
+        button.unbind("click");
+        button.on("click", function() {
+            unfollowClickEvent($(this));
+        });
+    };
+    
+    var unfollowClickEvent = function(button) {
+        var person_name = name;
+        for (var k=0; k<people.length; k++) {
+            if (people[k].name == person_name) {
+                people[k].following = "false";
+            }
+        }
+        localStorage["people"] = JSON.stringify(people);
+        button.removeClass("following");
+        button.text("Follow");
+        constructFollowingList();
+        button.unbind("click");
+        button.on("click", function() {
+            followClickEvent($(this));
+        });
+    }
+    
+    var constructFollowingList = function() {
+        $(".following-nav").empty();
+        for (var i=0; i<people.length; i++) {
+            if (people[i].following == "true") {
+                var link = $("<a>"+people[i].name+"</a>");
+                link.on('click', function() {
+                    //$('#view-following-modal modal-dialog').width
+                    $('#view-following-modal').modal('toggle');
+                    $('#view-following-modal .modal-title').html($(this).text());
+            
+                });
+                var listElement = $("<li></li>").append(link);
+                $(".following-nav").append(listElement);
+            }
         }
     }
+    
+    $('.following-nav a, .btn-view').on('click', function() {
+        name = $(this).text();
+        if (name == "View Profile") {
+            name = $(this).parent().parent().find("h3").text();
+        }
+        //$('#view-following-modal modal-dialog').width
+        
+        for (var i=0; i<people.length; i++) {
+            if (people[i].name == name) {
+                bio = people[i].bio;
+                following = people[i].following;
+            }
+        }
+        randomStartCigarettes = Math.floor(Math.random() * 10 +10);
+        viewData = generateData(randomStartCigarettes);
+        viewGoal = Math.round(randomStartCigarettes/2)
+        $('#view-following-modal').modal('toggle');
+        
+        $('#view-following-modal .modal-title').html(name).append($('<button href="#" class="btn btn-view-follow"></button>'));;
+        
+        if (following == "true") {
+                $(".btn-view-follow").addClass("following").text("Following").on("click", function() {
+                    unfollowClickEvent($(this))
+                });
+            } else {
+                $(".btn-view-follow").text("Follow").on("click", function() {
+                    followClickEvent($(this))
+                });
+            }
+        
+        
+        
+    });
+    
     
     var cigaretteCost = .5;
     
@@ -271,14 +325,15 @@ var modalJavascript = function() {
     
     $('#view-following-modal').on('shown.bs.modal', function (e) {
             $("#view-graph-container").empty();
-            var totalSaved = drawChart(viewData, "view-graph-container", 3);
+            var totalSaved = drawChart(viewData, "view-graph-container", viewGoal, randomStartCigarettes);
             
             
             $('.view-saved-cigarettes').html(totalSaved);
-            $(".view-extended-life").html(whichMilestone(totalSaved));
             $(".view-saved-money").html(savedMoney(totalSaved));
-            $('#view-following-modal #view-bio-container .bio-text').html(bio);
+            $('#view-following-modal #view-bio').html(bio);
         
     });
+    
+    
 
 }
