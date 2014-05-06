@@ -103,5 +103,9 @@ var pageJavascript = function() {
     $("#search").on("click", function() {
         populatePeople([people[people.length-1]]);
     }); 
+
+    $("#view-all").on("click", function() {
+        populatePeople(people);
+    }); 
   
 };
