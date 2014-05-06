@@ -102,11 +102,15 @@ var pageJavascript = function() {
 
     $("#search").on("click", function() {
         populatePeople([people[people.length-1]]);
+        $("#view-all").show();
     }); 
 
     $("#view-all").on("click", function() {
         populatePeople(people);
+        $("#view-all").hide();
     }); 
+    
+    $("#view-all").hide();
 
     $('#view-following-modal').on('shown.bs.modal', function (e) {
         $(".btn-view-follow").on("click", function() {
