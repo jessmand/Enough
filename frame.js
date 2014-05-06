@@ -6,7 +6,9 @@ $(function() {
     
     var sidebarHeight = function() {
         $('.row-top').height($('.top-banner').height());
+        console.log($(window).height());
         var sidebarHeight = $(window).height()-$('.top-banner').height() - 10;
+        console.log(sidebarHeight)
         $('.sidebar').height(sidebarHeight);
         var contentLeft = $('.sidebar').width()+20;
         var contentWidth = $(window).width()-contentLeft-35;

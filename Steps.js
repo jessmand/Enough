@@ -92,10 +92,20 @@ $(function() {
     var maxGoalCharacters = 140;
     $('.goal-character-count').html(maxGoalCharacters + ' characters remaining');
 
-    $('#goal').keyup(function() {
-        var text_length = $('#goal').val().length;
+    $('#reason').keyup(function() {
+        var text_length = $('#reason').val().length;
         var text_remaining = maxGoalCharacters - text_length;
 
         $('.goal-character-count').html(text_remaining + ' characters remaining');
     });
+    
+    var resizeSidebars = function() {
+        $(".left-bar, .right-bar").height($(document).height());
+    }
+    
+    $(window).resize(function() {
+        resizeSidebars();
+    });
+    
+    resizeSidebars();
 });
