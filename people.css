@@ -1,13 +1,8 @@
-.people-pic{
-	height: 200px;
-	width: 40%; 
-}
-
 .thumbnail > img {
     float: left;
-    height: 200px;
     overflow: hidden;
     margin-right: 9px;
+    height:100%;
 }
 
 
@@ -15,16 +10,28 @@
     padding: 4px;
 }
 
-.btn-view{
-	background-color: #4c66a4; 
-	border-color: black;
+.btn {
+    transition: background-color 0.3s ease;
+    border-color: rgb(76,102,164);
+    background-color: #f7f7f5;
+    margin:5px;
     color:black;
 }
 
-.btn-view:hover {
+.btn:hover {
+    color:white;
     background-color: rgba(76,102,164,0.7);
-    color: white;
-    font-weight: bold;
+}
+
+.btn.following {
+    transition: background-color 0.3s ease;
+    color:white;
+    background-color: rgba(76,102,164,0.7);
+}
+
+.btn.following:hover {
+    background-color: rgba(76,102,164,0.3);
+    color:black;
 }
 
 #search{
@@ -54,5 +61,5 @@
 
 input:focus, input:active, select:focus, select:active {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset !important;
-    border: 1px solid #B9D68A !important;
+    border: 1px solid rgb(76,102,164) !important;
 }

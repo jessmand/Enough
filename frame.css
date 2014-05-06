@@ -60,8 +60,7 @@
   font-size: 18px;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   background-color: #4c66a4;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -133,22 +132,6 @@ body {
   width: 80px;
 }
 
-.top-nav > li {
-  float: right;
-}
-
-.top-nav > li > a {
-  color: white;
-  text-shadow: -1px -1px 0 #526e26, 1px -1px 0 #526e26, -1px 1px 0 #526e26, 1px 1px 0 #526e26;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.top-nav > li > a:hover {
-  color: white;
-  background-color: black;
-}
 
 .top-links {
   padding-right: 40px;

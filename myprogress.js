@@ -30,22 +30,7 @@ var pageJavascript = function() {
          return ("$" + totalCost.toFixed(2));
     }
 
-    var data = [{
-            'date': "2014-03-01",
-            'cigarettes': 20
-        }, {
-            'date': "2014-03-02",
-            'cigarettes': 20
-        }, {
-            'date': "2014-03-03",
-            'cigarettes': 19
-        }, {
-            'date': "2014-03-04",
-            'cigarettes': 18
-        }, {
-            'date': "2014-03-05",
-            'cigarettes': 18
-        }];
+    var data = JSON.parse(localStorage["data"]);
 
     
     var totalSaved = drawChart(data, "graph-container", weekGoal)

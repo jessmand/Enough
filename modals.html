@@ -1,0 +1,74 @@
+<div id="update-progress-modal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Update Progress</h4>
+            </div>
+            <div class="modal-body update-progress-body">
+                <div class="row">
+                    <div id='calendar' class='col-md-6'></div>
+                    <div id='update-div' class='col-md-6 form-horizontal'>
+                        <div class='row'>
+                            <div class='date-selected col-md-12'></div>
+                        </div>
+                        <div class="row form-group">
+                            <label for="num-cigarettes" class="col-md-4 control-label">Cigarettes:</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="num-cigarettes" placeholder="#">
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn" id="update-cigarettes-btn">Update</button>
+                            </div>
+                        </div>
+                        <div id="alert-placeholder" class="row">
+                            <div class="alert alert-success alert-saved">Update saved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<div id="view-following-modal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body container-fluid view-following-body">
+                <div id="view-graph-container"></div>
+                <div class="row view-saved-cigarettes-container">
+                    <div class="col-md-4 col-md-offset-4">
+                        <b>Cigarettes resisted:</b>
+                        <span class="view-saved-cigarettes"></span>
+                    </div>
+                </div>
+                <div class="row view-cigarette-facts-container">
+                    <div class="col-md-3 col-md-offset-3">
+                        <b>Life regained:</b>You will
+                        <span class="view-extended-life"></span>.</div>
+                    <div class="col-md-3">
+                        <b>Money saved:</b>
+                        <span class="view-saved-money"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="view-bio-container" class="col-md-6 col-md-offset-3">
+                        <div class="view-bio-title">
+                            <span>Biography</span>
+                        </div>
+                        <span class="bio-text"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
