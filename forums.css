@@ -28,7 +28,7 @@
 	overflow-x: hidden;
 	width: 100%;
 	margin-top: 15px;
-	height: 400px;
+	height: 350px;
 	background-color: white;
 	border: 1px solid gray;
 	border-radius: 5px;
@@ -39,9 +39,10 @@
 	line-height: 15px;
 	border-bottom: 1px solid gray;
 	padding: 20px 0px;
+    transition: background-color 0.3s ease;
 }
 .post:hover {
-	background-color: #4c66a4;
+	background-color: rgba(76,102,164,0.7);
 	color: white;
 }
 
@@ -49,9 +50,10 @@
 	color: #4c66a4;
 }
 
-.post:hover .number {
-	color: #FFB300;
+.post:hover .number, .post:hover .good-post-button {
+    color:white;
 }
+
 
 .align-left {
     text-align:left;
@@ -71,7 +73,31 @@
     margin-left:5px;
 }
 
-.good-post-button:hover {
-    color:white;
+.post:hover .good-post-button:hover {
+    color:#FFB300;
     text-decoration: none;
+}
+
+#content {
+    border-radius: 4px;
+    /*background-color: #4c66a4;*/
+    /*color: #f7f7f5;*/
+    background-color: #f7f7f5;
+    padding-bottom:30px;
+}
+
+.btn {
+    transition: background-color 0.3s ease;
+    border-color: rgb(76,102,164);
+    background-color: #FFFFFF;
+}
+
+.btn:hover {
+    color:white;
+    background-color: rgba(76,102,164,0.7);
+}
+
+input:focus, input:active {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset !important;
+    border: 1px solid rgb(76,102,164) !important;
 }

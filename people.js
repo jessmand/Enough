@@ -8,7 +8,15 @@ var pageJavascript = function() {
         $(".following-nav").empty();
         for (var i=0; i<people.length; i++) {
             if (people[i].following == "true") {
-                $(".following-nav").append($("<li><a>"+people[i].name+"</a></li>"));
+                var link = $("<a>"+people[i].name+"</a>");
+                link.on('click', function() {
+                    //$('#view-following-modal modal-dialog').width
+                    $('#view-following-modal').modal('toggle');
+                    $('#view-following-modal .modal-title').html($(this).text());
+            
+                });
+                var listElement = $("<li></li>").append(link);
+                $(".following-nav").append(listElement);
             }
         }
     }
