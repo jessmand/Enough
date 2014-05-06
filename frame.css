@@ -117,6 +117,11 @@ a.sign-out:hover {
 #content {
   float: left;
   margin-top: 10px;
+<<<<<<< HEAD
+=======
+  background-image: url("./images/greyzz.png");
+  background-repeat: repeat;
+>>>>>>> a06afc8e91913009280d05a2d1640ebcdb6cf89a
   text-align: center;
   z-index: 1;
   margin-left: 20px;
@@ -403,4 +408,3 @@ h1.page-title {
 .saved-cigarettes {
     color: #FFB300;
 }
-

@@ -64,7 +64,7 @@ var pageJavascript = function() {
         for (var i=0; i<possiblePeople.length; i++) {
             var personTile = '<div class="col-sm-6 col-md-6">'
                                         +'<div class="thumbnail">'
-                                            +'<img src="images/'+possiblePeople[i].name.replace(" ", "")+'.jpg" alt="..." class="people-pic">'
+                                            +'<img src="./images/'+possiblePeople[i].name.replace(" ", "")+'.jpg" alt="..." class="people-pic">'
                                             +'<div class="caption">'
                                                 +'<h3>'+possiblePeople[i].name+'</h3>'
                                                 +'<p>'+possiblePeople[i].bio.substr(0,100)+'...</p>'
