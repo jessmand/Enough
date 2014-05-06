@@ -1,4 +1,6 @@
 var pageJavascript = function() {
+
+    $(".my-progress-btn-side").addClass("main-nav-on-page");
     
     
     var cigaretteCost = .5;

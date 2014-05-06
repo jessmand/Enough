@@ -2,7 +2,7 @@ var pageJavascript = function() {
     
     var people = JSON.parse(localStorage["people"]);
     
-    
+     $(".people-btn-side").addClass("main-nav-on-page");
     
     var constructFollowingList = function() {
         $(".following-nav").empty();
@@ -103,10 +103,14 @@ var pageJavascript = function() {
     $("#search").on("click", function() {
         populatePeople([people[people.length-1]]);
     }); 
+
+    $("#view-all").on("click", function() {
+        populatePeople(people);
+    }); 
+
     $('#view-following-modal').on('shown.bs.modal', function (e) {
         $(".btn-view-follow").on("click", function() {
             populatePeople(JSON.parse(localStorage["people"]));
         });
     });
-  
 };

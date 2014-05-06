@@ -137,6 +137,7 @@ textarea:focus, textarea:active, input:focus, input:active, select:focus, select
 	width: 120px;
 	text-align: center;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 .info-box-on {
@@ -159,6 +160,16 @@ textarea:focus, textarea:active, input:focus, input:active, select:focus, select
     cursor:pointer;
 }
 
+.quit-goal-description {
+	padding-bottom: 10px;
+	font-size: 25px;
+	font-weight: bold;
+	color: #4c66a4;
+}
+
+.control-label {
+	color: #4c66a4;
+}
 
 
 

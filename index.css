@@ -68,15 +68,15 @@ a {
 
 #bold:hover {
 	border-radius: 50px;
-	color: black;
+	color: rgb(70, 70, 70)
 }
 
 .stop-smoking-signup-link:hover {
-	color: black;
+	color: rgb(70, 70, 70)
 	cursor: pointer;
 }
 
 .btn:hover {
-	color: black;
+	color: rgb(70, 70, 70)
 }
 
