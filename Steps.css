@@ -204,3 +204,7 @@ textarea:focus, textarea:active, input:focus, input:active, select:focus, select
 	font-size: 20px;
 	font-weight: bold;
 }
+
+.form-group {
+	margin-bottom: 20px;
+}
