@@ -205,8 +205,17 @@ var drawChart = function (data, containerId, weekGoal, startCigarettes) {
     var maxBrushDate = new Date();
     maxBrushDate.setDate(maxDate.getDate() -1);
     
+    maxBrushDate.setHours(0);
+    maxBrushDate.setMinutes(0);
+    maxBrushDate.setSeconds(0);
+    maxBrushDate.setMilliseconds(0);
+    
     var beginWeek = new Date();
     beginWeek.setDate(maxBrushDate.getDate() -7);
+     beginWeek.setHours(0);
+    beginWeek.setMinutes(0);
+    beginWeek.setSeconds(0);
+    beginWeek.setMilliseconds(0);
     
     var brush = d3.svg.brush()
         .x(xPane)

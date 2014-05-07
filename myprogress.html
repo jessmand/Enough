@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.min.css" />
@@ -15,6 +16,7 @@
         <script src="progressGraph.js"></script>
         <script src="modals.js"></script>
         <script src="myprogress.js"></script>
+        <script src="jquery.knob.js"></script>
         <script src="frame.js"></script>
     </head>
     
@@ -25,7 +27,6 @@
                 <div class="sidebar"></div>
                 <div id="content">
                     <div class="graph-and-title-container">
-                        <h1 class="page-title">My Progress</h1>
                         <div id="graph-container"></div>
                     </div>
                     <div class="row content-row">
@@ -37,8 +38,8 @@
                                 <div id="goals-list" class="row"></div>
                             </div>
                             <div class="row harder-easier-buttons">
-                                <button class="btn btn-default harder-easier-button harder-button"><span class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp; Harder</button>
-                                <button class="btn btn-default harder-easier-button easier-button"><span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp; Easier</button>
+                                <button class="btn btn-default harder-easier-button harder-button">Harder</button>
+                                <button class="btn btn-default harder-easier-button easier-button">Easier</button>
                             </div>   
                         </div>
                         <div id="saved-money-cigarettes-container" class="col-md-6">

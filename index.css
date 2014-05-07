@@ -67,6 +67,7 @@ a {
 }
 
 #bold:hover {
+    cursor:pointer;
 	border-radius: 50px;
 	color: rgb(70, 70, 70)
 }
