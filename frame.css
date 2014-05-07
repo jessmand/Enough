@@ -196,10 +196,6 @@ h1.page-title {
     border-radius: 25px;
 }
 
-.day-needs-update {
-    background-color:#FFB300;
-}
-
 .date-selected {
     text-align:center;
     font-weight: bold;
