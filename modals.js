@@ -238,8 +238,11 @@ var modalJavascript = function () {
         var pagename = pathname.split("/")
         pagename = pagename[pagename.length - 1].split(".")[0];
         if (pagename == "people" && button.hasClass("btn-view-follow")) {
-            var thisName = $(this).parent().find("span").text();
+            console.log("keypress")
+            var thisName = $(button).parent().find("span").text();
+            console.log(thisName)
             var followButton = $(".thumbnail h3:contains('" + thisName + "')").parent().find(".btn-follow");
+            console.log(followButton)
             followButton.unbind("click").addClass("following").text("Following").on("click", function () {
                 unfollowClickEvent($(this))
             });      
@@ -265,7 +268,7 @@ var modalJavascript = function () {
         var pagename = pathname.split("/")
         pagename = pagename[pagename.length - 1].split(".")[0];
         if (pagename == "people" && button.hasClass("btn-view-follow")) {
-            var thisName = $(this).parent().find("span").text();
+            var thisName = $(button).parent().find("span").text();
             var followButton = $(".thumbnail h3:contains('" + thisName + "')").parent().find(".btn-follow");
             followButton.unbind("click").removeClass("following").text("Follow").on("click", function () {
                 followClickEvent($(this))
