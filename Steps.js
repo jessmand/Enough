@@ -1,11 +1,11 @@
 $(function() {
     
-    var generateInitialData = function(numCigarettes) {
+    var generateInitialData = function(numCigarettes, numDays) {
         
         var today = new Date();
-        
+        console.log(numDays);
         var data = [];
-        for (var i=40; i>1; i--) {
+        for (var i=numDays; i>1; i--) {
             var prevDay = new Date();
             prevDay.setDate(today.getDate()-i);
             var dd = prevDay.getDate();
@@ -21,10 +21,11 @@ $(function() {
             }
             
             var randomVariance = Math.floor(Math.random() * 3 - 1);
-            var prevDayCigarettes = Math.round(numCigarettes/2*(i/39) + numCigarettes/2) + randomVariance;
+            var prevDayCigarettes = Math.round(numCigarettes/2*(i/(numDays-1)) + numCigarettes/2) + randomVariance;
             
             data.push({'date':yyyy+"-"+mm+"-"+dd, 'cigarettes':prevDayCigarettes});
         }
+        console.log(data)
         return data
     }
 
@@ -35,7 +36,9 @@ $(function() {
 
 	$("#button2to3").on("click", function() {
         localStorage["numCigarettes"] = $("#num-cigarettes-spinner").val();
-        var data = generateInitialData(parseInt(localStorage["numCigarettes"]));
+        localStorage["quitTime"] = $(".quit-time").val();
+        var data = generateInitialData(parseInt(localStorage["numCigarettes"]), Math.round((parseInt($(".quit-time").val())*30)/2));
+        
         localStorage["data"] = JSON.stringify(data);
 		location.href="./StepThree.html";
 	});
