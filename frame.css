@@ -421,13 +421,13 @@ h1.page-title {
 
 .progress-description {
     position: absolute;
-    top:115px;
-    left:25px;
+    top:100px;
+    left:65px;
     text-align:center;
-    width:200px;
+    width:120px;
     font-weight:bold;
     color: rgba(0,0,0,.7);
-    font-size:28px;
+    font-size:23px;
 }
 
 .main-nav {
