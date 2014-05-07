@@ -46,9 +46,10 @@ $(function() {
 	$("#buttonFinish").on("click", function() {
         localStorage["reason"] = $("#reason").val();
         localStorage["signed-in"] = "true";
-        var biography = "I am a 35 year old with a loving wife and 3 kids. I want to be around as long as possible to help my wife handle our kids, and to be there for them while they grow up. If that means quitting a bad habit then thats what I\'m going to do. The love I recieve from my family on a daily basis is worth the feeling of a lifetime of cigarettes. I enjoy biking and rafting, and can\'t wait to do those things without having to worry about my health."
+        var joeBiography = "I am a 35 year old with a loving wife and 3 kids. I want to be around as long as possible to help my wife handle our kids, and to be there for them while they grow up. If that means quitting a bad habit then thats what I\'m going to do. The love I recieve from my family on a daily basis is worth the feeling of a lifetime of cigarettes. I enjoy biking and rafting, and can\'t wait to do those things without having to worry about my health."
+        var biography = "I started smoking when I was 13 and am now 25 and have been smoking ever since. I've gotten really into extreme sports but I'm always coughing when I'm doing them! I can't keep up with my friends and they're even a few years younger than me :(. I'm ready to stop smoknig now! Enough!";
         
-        var people = [{name:"Michael Bay", bio:biography, following:"false"}, {name:"Carolyn Smith", bio:biography, following:"false"}, {name:"Jonny Knoxville", bio:biography, following:"false"}, {name:"Jack Black", bio:biography, following:"false"}, {name:"Tony Stark", bio:biography, following:"false"}, {name:"Chris Evans", bio:biography, following:"false"}, {name:"Natalia Romanova", bio:biography, following:"false"}, {name:"Hawk Eye", bio:biography, following:"false"}, {name:"Joe Kookie", bio:biography, following:"false"}];
+        var people = [{name:"Michael Bay", bio:biography, following:"false"}, {name:"Carolyn Smith", bio:biography, following:"false"}, {name:"Jonny Knoxville", bio:biography, following:"false"}, {name:"Jack Black", bio:biography, following:"false"}, {name:"Tony Stark", bio:biography, following:"false"}, {name:"Chris Evans", bio:biography, following:"false"}, {name:"Natalia Romanova", bio:biography, following:"false"}, {name:"Hawk Eye", bio:biography, following:"false"}, {name:"Joe Kookie", bio:joeBiography, following:"false"}];
         
         localStorage["people"] = JSON.stringify(people);
         
